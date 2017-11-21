@@ -2,6 +2,7 @@
 
 int main() {
 	std::cout << "test" << std::endl;
-	std::cout << "Hello, Julie Nguyen !" << std::endl;
-	return (0);
+	std::cout << "Hello, World! " << std::endl;
+	std::cout << "Julie test merge" << std::endl;
+	return 0;
 }
