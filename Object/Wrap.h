@@ -5,17 +5,24 @@
 #ifndef SANTA_CLAUS_WRAP_H
 #define SANTA_CLAUS_WRAP_H
 
+#include <iostream>
+#include <string>
+
 class Wrap
 {
 protected:
-    bool _open;
+    bool open;
+    bool empty;
+
+    Object  *object;
 public:
     Wrap();
     ~Wrap();
 
     bool isOpen();
+    bool isEmpty();
 
-    virtual void wrapMeThat(Object *object);
+    virtual void wrapMeThat(Object *object) = 0;
     virtual void openMe();
     virtual void closeMe();
 

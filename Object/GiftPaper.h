@@ -12,6 +12,8 @@ class GiftPaper : public Wrap
 public:
     GiftPaper();
     ~GiftPaper();
+
+    virtual void wrapMeThat(Object *object);
 };
 
 #endif //SANTA_CLAUS_GIFTPAPER_H

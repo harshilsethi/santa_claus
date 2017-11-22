@@ -9,14 +9,11 @@
 
 class Box : public Wrap
 {
-private:
-    bool _empty;
-
 public:
     Box();
     ~Box();
 
-    bool isEmpty();
+    virtual void wrapMeThat(Object *object);
 };
 
 #endif //SANTA_CLAUS_BOX_H
