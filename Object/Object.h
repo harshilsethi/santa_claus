@@ -17,14 +17,16 @@ typedef enum {
 
 class Object {
 protected:
-	std::string _name;
-	objectType _type;
-	bool _isTaken;
+	std::string title;
+	objectType type;
 public:
-	virtual ~Object();
 	Object();
+	virtual ~Object();
 	virtual bool isTaken() const = 0;
+	std::string getTitle() const;
 	Object **MyUnitTests();
+	Object **MyUnitTests(Object **);
+	objectType getType() const;
 };
 
 

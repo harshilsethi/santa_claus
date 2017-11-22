@@ -13,7 +13,10 @@ bool LittlePony::isTaken() const {
 	return Object::isTaken();
 }
 
-LittlePony::LittlePony(const std::string &name): _name(name), objectType(LITTLEPONY) {}
+LittlePony::LittlePony(const std::string &name){
+	title = name;
+	type = LITTLEPONY;
+}
 
 LittlePony::~LittlePony() = default ;
 

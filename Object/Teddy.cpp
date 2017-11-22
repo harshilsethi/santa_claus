@@ -10,9 +10,12 @@
 
 bool Teddy::isTaken() const {
 	std::cout << "gra hu" << std::endl;
-	return _isTaken;
+	Object::isTaken();
 }
 
-Teddy::Teddy(const std::string &name) :_name(name), objectType(TEDDY) {}
+Teddy::Teddy(const std::string &name){
+	title = name;
+	type = TEDDY;
+}
 
 Teddy::~Teddy() = default;
