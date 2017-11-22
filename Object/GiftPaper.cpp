@@ -4,7 +4,7 @@
 
 #include "GiftPaper.h"
 
-GiftPaper::GiftPaper() {
+GiftPaper::GiftPaper() : type(GIFTPAPER) {
 
 }
 
@@ -13,8 +13,9 @@ GiftPaper::~GiftPaper() {
 }
 
 void GiftPaper::wrapMeThat(Object *object) {
-    if(this->object != NULL) {
-        this->object = object;
+    if(content != NULL) {
+        content = object;
         empty = false;
+        std::cout << "tuuuut tuuut tuut" << std::endl;
     }
 }

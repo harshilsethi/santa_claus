@@ -12,7 +12,9 @@
 
 typedef enum {
 	TEDDY,
-	LITTLEPONY
+	LITTLEPONY,
+	BOX,
+	GIFTPAPER
 } objectType;
 
 class Object {

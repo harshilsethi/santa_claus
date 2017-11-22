@@ -11,7 +11,7 @@ class GiftPaper : public Wrap
 {
 public:
     GiftPaper();
-    ~GiftPaper();
+    virtual ~GiftPaper();
 
     virtual void wrapMeThat(Object *object);
 };

@@ -11,7 +11,7 @@ class Box : public Wrap
 {
 public:
     Box();
-    ~Box();
+    virtual ~Box();
 
     virtual void wrapMeThat(Object *object);
 };
