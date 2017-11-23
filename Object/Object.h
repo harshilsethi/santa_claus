@@ -27,7 +27,7 @@ public:
 	virtual bool isTaken() const;
 	std::string getTitle() const;
 	Object **MyUnitTests();
-	Object **MyUnitTests(Object **);
+	Object *MyUnitTests(Object **);
 	objectType getType() const;
 };
 

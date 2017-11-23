@@ -33,6 +33,6 @@ Object** Object::MyUnitTests() {
 	return pObject;
 }
 
-Object** Object::MyUnitTests(Object **) {
+Object* Object::MyUnitTests(Object **) {
 	return nullptr;
 }

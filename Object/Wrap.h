@@ -31,6 +31,8 @@ public:
     virtual void closeMe();
 
     bool isTaken() const override;
+
+    //Object *MyUnitTests(Object **);
 };
 
 #endif //SANTA_CLAUS_WRAP_H

@@ -4,8 +4,8 @@
 
 #include "GiftPaper.h"
 
-GiftPaper::GiftPaper() : type(GIFTPAPER) {
-
+GiftPaper::GiftPaper() {
+    type = (GIFTPAPER);
 }
 
 GiftPaper::~GiftPaper() {
