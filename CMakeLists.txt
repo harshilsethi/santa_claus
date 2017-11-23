@@ -12,6 +12,12 @@ set(SOURCE_FILES
         Object/Teddy.h
         Object/Toy.cpp
         Object/Toy.h
+        Object/Wrap.cpp
+        Object/Wrap.h
+        Object/Box.cpp
+        Object/Box.h
+        Object/GiftPaper.cpp
+        Object/GiftPaper.h
         main.cpp)
 
 add_executable(santa_claus ${SOURCE_FILES})

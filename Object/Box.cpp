@@ -4,8 +4,8 @@
 
 #include "Box.h"
 
-Box::Box() : type(BOX) {
-
+Box::Box() {
+    type = BOX;
 }
 
 Box::~Box() {
