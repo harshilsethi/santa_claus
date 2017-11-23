@@ -13,7 +13,23 @@
 class PapaXmasConveyorBelt : public IConveyorBelt {
 
 protected:
-	Object objectOnBelt;
+	Object *objectOnBelt;
+public:
+	PapaXmasConveyorBelt();
+
+	virtual ~PapaXmasConveyorBelt();
+
+	IConveyorBelt *createConveyorBelt() override;
+
+	void inButton() override;
+
+	void setObject(Object *object) override;
+
+	void outButton() override;
+
+	Object *getObject() override;
+
+
 };
 
 #endif /* ! PAPAXMASCONVEYORBELT_H__ */
