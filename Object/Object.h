@@ -24,7 +24,7 @@ protected:
 public:
 	Object();
 	virtual ~Object();
-	virtual bool isTaken() const = 0;
+	virtual bool isTaken() const;
 	std::string getTitle() const;
 	Object **MyUnitTests();
 	objectType getType() const;
