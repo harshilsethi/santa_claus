@@ -12,10 +12,13 @@ Box::~Box() {
 
 }
 
+bool Box::isOpen() {
+    return (open);
+}
+
 void Box::wrapMeThat(Object *object) {
     if(open && content == NULL) {
         content = object;
-        empty = false;
         std::cout << "tuuuut tuuut tuut" << std::endl;
     }
 }

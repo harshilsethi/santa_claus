@@ -13,8 +13,7 @@
 class Wrap : public Object
 {
 protected:
-    bool open;
-    bool empty;
+    bool    open;
 
     Object  *content;
 
@@ -22,17 +21,13 @@ public:
     Wrap();
     virtual ~Wrap();
 
-    bool    isOpen() const;
-    bool    isEmpty() const;
     Object  *getObject() const;
 
-    virtual void wrapMeThat(Object *object) = 0;
+    virtual void wrapMeThat(Object &object) = 0;
     virtual void openMe();
     virtual void closeMe();
 
-    bool isTaken() const override;
-
-    //Object *MyUnitTests(Object **);
+    Object *MyUnitTests(Object **);
 };
 
 #endif //SANTA_CLAUS_WRAP_H

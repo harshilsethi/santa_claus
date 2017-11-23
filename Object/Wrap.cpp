@@ -3,6 +3,7 @@
 //
 
 #include "Wrap.h"
+#include "Teddy.h"
 #include "Box.h"
 #include "GiftPaper.h"
 
@@ -14,48 +15,44 @@ Wrap::~Wrap() {
 
 }
 
-bool Wrap::isOpen() const {
-    return (open);
-}
-
-bool Wrap::isEmpty() const {
-    return (empty);
-}
-
 Object* Wrap::getObject() const {
     return (content);
 }
 
 void Wrap::openMe() {
     open = true;
-    if(isTaken()) {
-        empty = true;
-        content = NULL;
-    }
 }
 
 void Wrap::closeMe() {
     open = false;
 }
 
-bool Wrap::isTaken() const {
-    std::cout << "whistles while working" << std::endl;
-    return (Object::isTaken());
-}
-/*
-Object* Wrap::MyUnitTests(Object **object) {
+Object* Wrap::MyUnitTests(Object **bag) {
+    int         size = 0;
+    Teddy       *teddy = NULL;
+    Box         *box = NULL;
+    GiftPaper   *giftPaper = NULL;
 
-    try {
-        Box box;
-        Object &myBox = box;
-        GiftPaper giftPaper;
-        Box *test = static_cast<Box*&>(box).wrapMeThat(object[0]);
-        dynamic_cast<Box&>(box).wrapMeThat(object[0]);
-        dynamic_cast<GiftPaper&>(giftPaper).wrapMeThat(object[1]);
+    if(!bag) {
+        std::cerr << "The bag is empty !" << std::endl;
+        return (NULL);
     }
-    catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
+    while(bag[size++]) {
+        if(size != 4) {
+            std::cerr << "Cannot prepare a present with missing stuff !" << std::endl;
+            return (NULL);
+        }
     }
-    return (object[2]);
+    if(size == 3 && bag[0]->getType() == TEDDY && bag[1]->getType() == BOX && bag[2]->getType() == GIFTPAPER) {
+        teddy = (Teddy *) bag[0];
+        box = (Box *) bag[1];
+        giftPaper = (GiftPaper *) bag[2];
+
+        box->openMe();
+        box->wrapMeThat(teddy);
+        box->closeMe();
+        giftPaper->wrapMeThat(box);
+    }
+
+    return (giftPaper);
 }
- */

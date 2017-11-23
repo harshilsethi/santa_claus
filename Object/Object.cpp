@@ -32,7 +32,3 @@ Object** Object::MyUnitTests() {
 	pObject[1] = new Teddy("cuddles");
 	return pObject;
 }
-
-Object* Object::MyUnitTests(Object **) {
-	return nullptr;
-}
