@@ -12,8 +12,12 @@
 
 class PapaXmasTable : public ITable {
 public:
+	PapaXmasTable();
+	~PapaXmasTable();
+
 	ITable *createTable() override;
 	std::list<Object> getObjects() override;
+	void setObjects(std::list<Object> objects) override;
 
 protected:
 	std::list<Object> objects;

@@ -8,6 +8,7 @@ set(SOURCE_FILES
         Object/Box.h
         Object/GiftPaper.cpp
         Object/GiftPaper.h
+        Object/IElf.h
         Object/ITable.h
         Object/IConveyorBelt.h
         Object/LittlePony.cpp
