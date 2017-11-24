@@ -14,7 +14,8 @@
 
 #include "Object.h"
 
-class ITable {
+class ITable
+{
 public:
 	virtual ITable *createTable() = 0;
 	virtual std::list<Object> getObjects() = 0;

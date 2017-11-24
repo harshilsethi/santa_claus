@@ -10,7 +10,8 @@
 
 #include "Object.h"
 
-class IConveyorBelt {
+class IConveyorBelt
+{
 public:
 	virtual IConveyorBelt *createConveyorBelt() = 0;
 	virtual void inButton() = 0;

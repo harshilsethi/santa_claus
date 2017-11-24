@@ -1,13 +1,12 @@
-//
-// EPITECH PROJECT, 2017
-// 
-// File description:
-//
-//
+/*
+** EPITECH PROJECT, 2017
+** Piscine CPP
+** File description:
+** Teddy.h
+*/
 
 #ifndef SANTA_CLAUS_TEDDY_H
 #define SANTA_CLAUS_TEDDY_H
-
 
 #include "Toy.h"
 
@@ -18,6 +17,5 @@ public:
 
 	bool isTaken() const override;
 };
-
 
 #endif //SANTA_CLAUS_TEDDY_H

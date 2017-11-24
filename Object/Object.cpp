@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2017
-// 
-// File description:
-//
-//
+/*
+** EPITECH PROJECT, 2017
+** Piscine CPP
+** File description:
+** Object.cpp
+*/
 
 #include "Object.h"
 #include "LittlePony.h"

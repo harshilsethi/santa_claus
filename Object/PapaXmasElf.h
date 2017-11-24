@@ -48,5 +48,4 @@ private:
         IConveyorBelt *myBelt;
 };
 
-
 #endif //SANTA_CLAUS_PAPAXMASELF_H

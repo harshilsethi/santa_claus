@@ -7,46 +7,36 @@
 
 #include "PapaXmasElf.h"
 
-PapaXmasElf::PapaXmasElf() : IElf(), name("Billy")
-{
+PapaXmasElf::PapaXmasElf() : IElf(), name("Billy") {
 }
 
-PapaXmasElf::PapaXmasElf(std::string &aName) : IElf(), name(aName)
-{
+PapaXmasElf::PapaXmasElf(std::string &aName) : IElf(), name(aName) {
 }
 
-PapaXmasElf::PapaXmasElf(const PapaXmasElf &elf) : name(elf.getName())
-{
+PapaXmasElf::PapaXmasElf(const PapaXmasElf &elf) : name(elf.getName()) {
         myTable = elf.myTable;
         myBelt = elf.myBelt;
 }
 
-PapaXmasElf::~PapaXmasElf()
-{
-}
+PapaXmasElf::~PapaXmasElf() = default;
 
-ITable *PapaXmasElf::getTable() const
-{
+ITable *PapaXmasElf::getTable() const {
         return (myTable);
 }
 
-IConveyorBelt *PapaXmasElf::getBelt() const
-{
+IConveyorBelt *PapaXmasElf::getBelt() const {
         return (myBelt);
 }
 
-void PapaXmasElf::setTable(ITable &table)
-{
+void PapaXmasElf::setTable(ITable &table) {
         myTable = &table;
 }
 
-void PapaXmasElf::setBelt(IConveyorBelt &belt)
-{
+void PapaXmasElf::setBelt(IConveyorBelt &belt) {
         myBelt = &belt;
 }
 
-void PapaXmasElf::pressInButton()
-{
+void PapaXmasElf::pressInButton() {
         try {
                 if(myBelt->getObject() != nullptr)
                         myBelt->inButton();
@@ -58,8 +48,7 @@ void PapaXmasElf::pressInButton()
         }
 }
 
-void PapaXmasElf::pressOutButton()
-{
+void PapaXmasElf::pressOutButton() {
         try {
                 if(myBelt->getObject() == nullptr)
                         myBelt->outButton();
@@ -71,11 +60,10 @@ void PapaXmasElf::pressOutButton()
         }
 }
 
-void PapaXmasElf::putOnBelt(Object &object)
-{
+void PapaXmasElf::putOnBelt(Object &object) {
         Object *objectPtr = &object;
         try {
-                if (myBelt->getObject() == NULL)
+                if (myBelt->getObject() == nullptr)
                         myBelt->setObject(objectPtr);
                 else
                         throw getName() + ": There's already an object on the conveyor belt";
@@ -90,6 +78,7 @@ void PapaXmasElf::putOnTable(Object &object) {
                 std::list<Object> temp = myTable->getObjects();
 
                 if (temp.size() < 10) {
+                        std::cout << "The present is ready !" << std::endl;
                         temp.push_back(object);
                         myTable->setObjects(temp);
                 }else
@@ -100,11 +89,10 @@ void PapaXmasElf::putOnTable(Object &object) {
         }
 }
 
-void PapaXmasElf::takeFromBelt(Object &object)
-{
+void PapaXmasElf::takeFromBelt(Object &object) {
         try {
-                if(myBelt->getObject() != NULL){
-                        myBelt->setObject(NULL);
+                if(myBelt->getObject() != nullptr){
+                        myBelt->setObject(nullptr);
                 }else{
                         throw getName() + ": There's no object on the conveyor belt.";
                 }
@@ -114,20 +102,19 @@ void PapaXmasElf::takeFromBelt(Object &object)
         }
 }
 
-void PapaXmasElf::takeFromTable(Object &object)
-{
+void PapaXmasElf::takeFromTable(Object &object) {
         std::list<Object> temp = myTable->getObjects();
         std::list<Object>::iterator it;
         try {
                 bool find = false;
                 for (it = temp.begin(); it != temp.end(); ++it) {
-                        if (it->getTitle() == object.getTitle() && find == false) {
+                        if (it->getTitle() == object.getTitle() && !find) {
                                 temp.erase(it);
                                 --it;
                                 find = true;
                         }
                 }
-                if(find == false)
+                if(!find)
                         throw getName() + ": I don't have this type of object on my table.";
         }
         catch(std::string &err){
@@ -136,8 +123,7 @@ void PapaXmasElf::takeFromTable(Object &object)
 
 }
 
-std::list<std::string> PapaXmasElf::look()
-{
+std::list<std::string> PapaXmasElf::look() {
         std::list<Object> temp = myTable->getObjects();
         std::list<Object>::iterator it;
         std::list<std::string> objectList;
@@ -149,17 +135,14 @@ std::list<std::string> PapaXmasElf::look()
         return(objectList);
 }
 
-const std::string PapaXmasElf::getName() const
-{
+const std::string PapaXmasElf::getName() const {
         return (name);
 }
 
-void PapaXmasElf::talk(std::string &line)
-{
+void PapaXmasElf::talk(std::string &line) {
         std::cout << line << std::endl;
 }
 
-void PapaXmasElf::report(std::string &line)
-{
+void PapaXmasElf::report(std::string &line) {
         std::cerr << line << std::endl;
 }

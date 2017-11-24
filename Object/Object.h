@@ -1,9 +1,9 @@
-//
-// EPITECH PROJECT, 2017
-// 
-// File description:
-//
-//
+/*
+** EPITECH PROJECT, 2017
+** Piscine CPP
+** File description:
+** Object.h
+*/
 
 #ifndef SANTA_CLAUS_OBJECT_H
 #define SANTA_CLAUS_OBJECT_H
@@ -29,6 +29,5 @@ public:
 	Object **MyUnitTests();
 	objectType getType() const;
 };
-
 
 #endif //SANTA_CLAUS_OBJECT_H

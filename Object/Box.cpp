@@ -1,21 +1,24 @@
-//
-// Created by hsethi on 11/22/17.
-//
+/*
+** EPITECH PROJECT, 2017
+** Piscine CPP
+** File description:
+** Box.cpp
+*/
 
 #include "Box.h"
 
 Box::Box() {
-    type = BOX;
+	type = BOX;
 }
 
 Box::~Box() = default;
 
 bool Box::isOpen() {
-    return (open);
+	return (open);
 }
 
 void Box::wrapMeThat(Object *object) {
-    if(open && content == nullptr) {
-        content = object;
-    }
+	if(open && content == nullptr) {
+		content = object;
+	}
 }

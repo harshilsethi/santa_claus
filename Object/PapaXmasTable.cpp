@@ -8,13 +8,9 @@
 #include "PapaXmasTable.h"
 #include "Teddy.h"
 
-PapaXmasTable::PapaXmasTable() {
+PapaXmasTable::PapaXmasTable() = default;
 
-}
-
-PapaXmasTable::~PapaXmasTable() {
-
-}
+PapaXmasTable::~PapaXmasTable() = default;
 
 ITable *PapaXmasTable::createTable() {
 	ITable *table = new PapaXmasTable();

@@ -1,6 +1,9 @@
-//
-// Created by hsethi on 11/22/17.
-//
+/*
+** EPITECH PROJECT, 2017
+** Piscine CPP
+** File description:
+** GiftPaper.h
+*/
 
 #ifndef SANTA_CLAUS_GIFTPAPER_H
 #define SANTA_CLAUS_GIFTPAPER_H
