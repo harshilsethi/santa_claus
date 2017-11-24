@@ -32,16 +32,17 @@ public:
         void takeFromTable(Object &);
         void takeFromBelt(Object &);
         std::list<std::string> look();
-        const std::string getName() const;
+        std::string getName() const;
         void talk(std::string &);
         void report(std::string &);
 
 private:
         /*
-	  PapaXmasTable xmasTable;
-	  PapaXmasConveyorBelt xmasConveyorBelt;
-	  TableRand randomTable;
-	  ConveyorBeltRand randomBelt;
+          Dans le cas ou utiliser directement les interface ne fonctionne pas
+	  PapaXmasTable *xmasTable;
+	  PapaXmasConveyorBelt *xmasConveyorBelt;
+	  TableRand *randomTable;
+	  ConveyorBeltRand *randomBelt;
         */
         const std::string name;
         ITable *myTable;

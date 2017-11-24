@@ -23,7 +23,7 @@ public:
         virtual void takeFromTable(Object &) = 0;
         virtual void takeFromBelt(Object &) = 0;
         virtual std::list<std::string> look() = 0;
-        virtual const std::string getName() const = 0;
+        virtual std::string getName() const = 0;
         virtual void talk(std::string &) = 0;
         virtual void report(std::string &) = 0;
 };

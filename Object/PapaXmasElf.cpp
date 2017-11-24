@@ -149,7 +149,7 @@ std::list<std::string> PapaXmasElf::look()
         return(objectList);
 }
 
-const std::string PapaXmasElf::getName() const
+std::string PapaXmasElf::getName() const
 {
         return (name);
 }
