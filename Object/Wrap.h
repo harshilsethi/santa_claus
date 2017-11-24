@@ -35,6 +35,7 @@ public:
         Object *MyUnitTests(Object **);
 
         void displayPresendToy(std::string, std::string);
+        void cerr(std::string);
 };
 
 #endif //SANTA_CLAUS_WRAP_H

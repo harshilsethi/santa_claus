@@ -45,14 +45,14 @@ Object* Wrap::MyUnitTests(Object **bag) {
         GiftPaper   &myGiftPaper = giftPaper;
 
         if(!bag) {
-                std::cerr << "The bag is empty !" << std::endl;
+                cerr("The bag is empty !");
                 return (nullptr);
         }
         while(bag[size]) {
                 size++;
         }
         if(size != 3) {
-                std::cerr << "Cannot prepare a present with missing stuff !" << std::endl;
+                cerr("Cannot prepare a present with missing stuff !");
                 return (nullptr);
         }
         for(int i = 0; i < 3; i++) {
@@ -77,15 +77,18 @@ Object* Wrap::MyUnitTests(Object **bag) {
         }
         if(bBox && bGiftPaper && (bTeddy || bLittlePony)) {
                 myBox.openMe();
-                myBox.wrapMeThat(&myTeddy);
+                if(bTeddy) {
+                        displayPresendToy("Teddy", myTeddy.getTitle());
+                        myBox.wrapMeThat(&myTeddy);
+                }
+                if(bLittlePony) {
+                        displayPresendToy("LittlePony", myLittlePony.getTitle());
+                        myBox.wrapMeThat(&myLittlePony);
+                }
                 myBox.closeMe();
                 myGiftPaper.wrapMeThat(&myBox);
-                if(bTeddy)
-                        displayPresendToy("Teddy", myTeddy.getTitle());
-                if(bLittlePony)
-                        displayPresendToy("LittlePony", myLittlePony.getTitle());
         } else {
-                std::cerr << "Cannot prepare a present with missing stuff !" << std::endl;
+                cerr("Cannot prepare a present with missing stuff !");
                 return (nullptr);
         }
         return (&myGiftPaper);
@@ -93,4 +96,8 @@ Object* Wrap::MyUnitTests(Object **bag) {
 
 void Wrap::displayPresendToy(std::string toy, std::string title) {
         std::cout << "The present " << toy <<  " : '" << title << "' is ready !" << std::endl;
+}
+
+void Wrap::cerr(std::string message) {
+        std::cerr << message << std::endl;
 }
