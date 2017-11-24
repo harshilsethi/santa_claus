@@ -27,7 +27,7 @@ bool Object::isTaken() const {
 }
 
 Object** Object::MyUnitTests() {
-	Object **pObject;
+	Object **pObject = new Object*[1];
 	pObject[0] = new LittlePony("happy pony");
 	pObject[1] = new Teddy("cuddles");
 	return pObject;
