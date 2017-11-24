@@ -10,7 +10,7 @@
 
 #include <string>
 #include <list>
-#include "Object.h"
+#include "../Object/Object.h"
 #include "IConveyorBelt.h"
 
 class IElf

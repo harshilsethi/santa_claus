@@ -8,7 +8,7 @@
 #ifndef ICONVEYORBELT_H__
 #define ICONVEYORBELT_H__
 
-#include "Object.h"
+#include "../Object/Object.h"
 
 class IConveyorBelt
 {

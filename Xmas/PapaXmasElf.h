@@ -11,7 +11,7 @@
 #include <iostream>
 #include "PapaXmasTable.h"
 #include "PapaXmasConveyorBelt.h"
-#include "../Object/IElf.h"
+#include "IElf.h"
 
 class PapaXmasElf : public IElf
 {

@@ -3,7 +3,7 @@
 #include "Object/Wrap.h"
 #include "Object/Box.h"
 #include "Object/GiftPaper.h"
-#include "Object/ITable.h"
+#include "Xmas/ITable.h"
 #include "Xmas/PapaXmasTable.h"
 
 int main() {

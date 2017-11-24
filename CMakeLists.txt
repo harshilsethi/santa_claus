@@ -8,9 +8,9 @@ set(SOURCE_FILES
         Object/Box.h
         Object/GiftPaper.cpp
         Object/GiftPaper.h
-        Object/IElf.h
-        Object/ITable.h
-        Object/IConveyorBelt.h
+        Xmas/IElf.h
+        Xmas/ITable.h
+        Xmas/IConveyorBelt.h
         Object/LittlePony.cpp
         Object/LittlePony.h
         Object/Object.cpp
@@ -23,7 +23,7 @@ set(SOURCE_FILES
         Object/Teddy.h
         Object/Toy.cpp
         Object/Toy.h
-        Object/IElf.h
+        Xmas/IElf.h
         Xmas/PapaXmasElf.cpp
         Xmas/PapaXmasElf.h
         Object/Wrap.cpp
