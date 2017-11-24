@@ -8,7 +8,7 @@
 #ifndef PAPAXMASTABLE_H__
 #define PAPAXMASTABLE_H__
 
-#include "ITable.h"
+#include "../Object/ITable.h"
 
 class PapaXmasTable : public ITable {
 public:

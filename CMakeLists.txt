@@ -15,17 +15,17 @@ set(SOURCE_FILES
         Object/LittlePony.h
         Object/Object.cpp
         Object/Object.h
-        Object/PapaXmasTable.cpp
-        Object/PapaXmasTable.h
-        Object/PapaXmasConveyorBelt.cpp
-        Object/PapaXmasConveyorBelt.h
+        Xmas/PapaXmasTable.cpp
+        Xmas/PapaXmasTable.h
+        Xmas/PapaXmasConveyorBelt.cpp
+        Xmas/PapaXmasConveyorBelt.h
         Object/Teddy.cpp
         Object/Teddy.h
         Object/Toy.cpp
         Object/Toy.h
         Object/IElf.h
-        Object/PapaXmasElf.cpp
-        Object/PapaXmasElf.h
+        Xmas/PapaXmasElf.cpp
+        Xmas/PapaXmasElf.h
         Object/Wrap.cpp
         Object/Wrap.h
         main.cpp)

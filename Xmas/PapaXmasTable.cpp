@@ -6,7 +6,7 @@
 */
 
 #include "PapaXmasTable.h"
-#include "Teddy.h"
+#include "../Object/Teddy.h"
 
 PapaXmasTable::PapaXmasTable() = default;
 

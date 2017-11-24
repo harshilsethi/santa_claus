@@ -8,7 +8,7 @@
 #ifndef PAPAXMASCONVEYORBELT_H__
 #define PAPAXMASCONVEYORBELT_H__
 
-#include "IConveyorBelt.h"
+#include "../Object/IConveyorBelt.h"
 
 class PapaXmasConveyorBelt : public IConveyorBelt {
 

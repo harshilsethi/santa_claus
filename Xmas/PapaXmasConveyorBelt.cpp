@@ -7,9 +7,9 @@
 
 #include <memory>
 #include "PapaXmasConveyorBelt.h"
-#include "Wrap.h"
-#include "GiftPaper.h"
-#include "Box.h"
+#include "../Object/Wrap.h"
+#include "../Object/GiftPaper.h"
+#include "../Object/Box.h"
 
 IConveyorBelt *PapaXmasConveyorBelt::createConveyorBelt() {
 	IConveyorBelt *belt = new PapaXmasConveyorBelt();

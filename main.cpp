@@ -4,7 +4,7 @@
 #include "Object/Box.h"
 #include "Object/GiftPaper.h"
 #include "Object/ITable.h"
-#include "Object/PapaXmasTable.h"
+#include "Xmas/PapaXmasTable.h"
 
 int main() {
 	Wrap *wrap;

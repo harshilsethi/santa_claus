@@ -10,7 +10,7 @@
 
 bool Teddy::isTaken() const {
 	std::cout << "gra hu" << std::endl;
-	Object::isTaken();
+	return Object::isTaken();
 }
 
 Teddy::Teddy(const std::string &name){
