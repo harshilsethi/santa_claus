@@ -1,13 +1,12 @@
-//
-// EPITECH PROJECT, 2017
-// 
-// File description:
-//
-//
+/*
+** EPITECH PROJECT, 2017
+** Piscine CPP
+** File description:
+** LittlePony.h
+*/
 
 #ifndef SANTA_CLAUS_LITTILEPONY_H
 #define SANTA_CLAUS_LITTILEPONY_H
-
 
 #include "Toy.h"
 
@@ -18,9 +17,6 @@ public:
 	bool isTaken() const override;
 
 	virtual ~LittlePony();
-
 };
-
-
 
 #endif //SANTA_CLAUS_LITTILEPONY_H

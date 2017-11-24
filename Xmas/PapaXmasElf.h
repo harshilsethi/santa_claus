@@ -11,7 +11,7 @@
 #include <iostream>
 #include "PapaXmasTable.h"
 #include "PapaXmasConveyorBelt.h"
-#include "IElf.h"
+#include "../Object/IElf.h"
 
 class PapaXmasElf : public IElf
 {
@@ -48,6 +48,5 @@ private:
         ITable *myTable;
         IConveyorBelt *myBelt;
 };
-
 
 #endif //SANTA_CLAUS_PAPAXMASELF_H

@@ -1,20 +1,20 @@
-//
-// Created by hsethi on 11/22/17.
-//
+/*
+** EPITECH PROJECT, 2017
+** Piscine CPP
+** File description:
+** GiftPaper.cpp
+*/
 
 #include "GiftPaper.h"
 
 GiftPaper::GiftPaper() {
-    type = (GIFTPAPER);
+    type = GIFTPAPER;
 }
 
-GiftPaper::~GiftPaper() {
-
-}
+GiftPaper::~GiftPaper() = default;
 
 void GiftPaper::wrapMeThat(Object *object) {
-    if(content == NULL) {
+    if(content == nullptr) {
         content = object;
-        std::cout << "tuuuut tuuut tuut" << std::endl;
     }
 }

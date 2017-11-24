@@ -1,16 +1,16 @@
-//
-// EPITECH PROJECT, 2017
-// 
-// File description:
-//
-//
+/*
+** EPITECH PROJECT, 2017
+** Piscine CPP
+** File description:
+** Teddy.cpp
+*/
 
 #include <iostream>
 #include "Teddy.h"
 
 bool Teddy::isTaken() const {
 	std::cout << "gra hu" << std::endl;
-	Object::isTaken();
+	return Object::isTaken();
 }
 
 Teddy::Teddy(const std::string &name){

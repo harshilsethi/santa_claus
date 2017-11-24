@@ -1,7 +1,9 @@
-//
-// Created by hsethi on 11/22/17.
-//
-
+/*
+** EPITECH PROJECT, 2017
+** Piscine CPP
+** File description:
+** Box.h
+*/
 #ifndef SANTA_CLAUS_BOX_H
 #define SANTA_CLAUS_BOX_H
 
@@ -10,12 +12,12 @@
 class Box : public Wrap
 {
 public:
-    Box();
-    virtual ~Box();
+	Box();
+	virtual ~Box();
 
-    bool isOpen();
+	bool isOpen();
 
-    virtual void wrapMeThat(Object *object);
+	virtual void wrapMeThat(Object *object);
 };
 
 #endif //SANTA_CLAUS_BOX_H
