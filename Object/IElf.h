@@ -1,6 +1,9 @@
-//
-// Created by jerome on 23/11/17.
-//
+/*
+** EPITECH PROJECT, 2017
+** IElf interface
+** File description:
+** contain all the actions of the elves
+*/
 
 #ifndef SANTA_CLAUS_IELF_H
 #define SANTA_CLAUS_IELF_H
@@ -20,6 +23,9 @@ public:
         virtual void takeFromTable(Object &) = 0;
         virtual void takeFromBelt(Object &) = 0;
         virtual std::list<std::string> look() = 0;
+        virtual const std::string getName() const = 0;
+        virtual void talk(std::string &) = 0;
+        virtual void report(std::string &) = 0;
 };
 
 #endif //SANTA_CLAUS_IELF_H

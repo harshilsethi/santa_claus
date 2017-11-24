@@ -22,12 +22,11 @@ set(SOURCE_FILES
         Object/Teddy.h
         Object/Toy.cpp
         Object/Toy.h
-<<<<<<< HEAD
-        main.cpp Object/IElf.h Object/PapaXmasElf.cpp Object/PapaXmasElf.h)
-=======
+        Object/IElf.h
+        Object/PapaXmasElf.cpp
+        Object/PapaXmasElf.h
         Object/Wrap.cpp
         Object/Wrap.h
         main.cpp)
->>>>>>> 2650dc96cfb6158aa9585a1b8677380696dddad9
 
 add_executable(santa_claus ${SOURCE_FILES})

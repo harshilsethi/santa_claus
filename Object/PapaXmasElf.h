@@ -1,6 +1,9 @@
-//
-// Created by jerome on 23/11/17.
-//
+/*
+** EPITECH PROJECT, 2017
+** PapaXmasElf
+** File description:
+** Header of the class
+*/
 
 #ifndef SANTA_CLAUS_PAPAXMASELF_H
 #define SANTA_CLAUS_PAPAXMASELF_H
@@ -10,16 +13,17 @@
 #include "PapaXmasConveyorBelt.h"
 #include "IElf.h"
 
-class PapaXmasElf
+class PapaXmasElf : public IElf
 {
 public:
         PapaXmasElf();
+        PapaXmasElf(std::string &);
         PapaXmasElf(const PapaXmasElf &);
         ~PapaXmasElf();
-        ITable getTable() const;
-        IConveyorBelt getBelt() const;
+        ITable *getTable() const;
+        IConveyorBelt *getBelt() const;
         void setTable(ITable &);
-        void setBelt(IConveyoirBelt &);
+        void setBelt(IConveyorBelt &);
 
         void pressInButton();
         void pressOutButton();
@@ -28,17 +32,20 @@ public:
         void takeFromTable(Object &);
         void takeFromBelt(Object &);
         std::list<std::string> look();
+        const std::string getName() const;
+        void talk(std::string &);
+        void report(std::string &);
+
 private:
         /*
-        PapaXmasTable xmasTable;
-        PapaXmasConveyorBelt xmasConveyorBelt;
-        TableRand randomTable;
-        ConveyorBeltRand randomBelt;
+	  PapaXmasTable xmasTable;
+	  PapaXmasConveyorBelt xmasConveyorBelt;
+	  TableRand randomTable;
+	  ConveyorBeltRand randomBelt;
         */
-
-        ITable myTable;
-        IConveyorBelt myBelt;
-        //Object myObject;
+        const std::string name;
+        ITable *myTable;
+        IConveyorBelt *myBelt;
 };
 
 

@@ -19,7 +19,7 @@ IConveyorBelt *PapaXmasConveyorBelt::createConveyorBelt() {
 void PapaXmasConveyorBelt::inButton() {
 	Wrap *newObject;
 	if(random() % 2)
-		newObject = new GiftPaper;
+		newObject = new GiftPaper();
 	else
 		newObject = new Box;
 	this->objectOnBelt = newObject;
