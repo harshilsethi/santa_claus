@@ -8,17 +8,14 @@ Box::Box() {
     type = BOX;
 }
 
-Box::~Box() {
-
-}
+Box::~Box() = default;
 
 bool Box::isOpen() {
     return (open);
 }
 
 void Box::wrapMeThat(Object *object) {
-    if(open && content == NULL) {
+    if(open && content == nullptr) {
         content = object;
-        std::cout << "tuuuut tuuut tuut" << std::endl;
     }
 }

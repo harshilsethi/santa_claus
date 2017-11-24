@@ -5,16 +5,13 @@
 #include "GiftPaper.h"
 
 GiftPaper::GiftPaper() {
-    type = (GIFTPAPER);
+    type = GIFTPAPER;
 }
 
-GiftPaper::~GiftPaper() {
-
-}
+GiftPaper::~GiftPaper() = default;
 
 void GiftPaper::wrapMeThat(Object *object) {
-    if(content == NULL) {
+    if(content == nullptr) {
         content = object;
-        std::cout << "tuuuut tuuut tuut" << std::endl;
     }
 }

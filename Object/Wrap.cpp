@@ -11,9 +11,7 @@ Wrap::Wrap() {
 
 }
 
-Wrap::~Wrap() {
-
-}
+Wrap::~Wrap() = default;
 
 Object* Wrap::getObject() const {
     return (content);
@@ -28,31 +26,57 @@ void Wrap::closeMe() {
 }
 
 Object* Wrap::MyUnitTests(Object **bag) {
-    int         size = 0;
-    Teddy       *teddy = NULL;
-    Box         *box = NULL;
-    GiftPaper   *giftPaper = NULL;
+    int size = 0;
+
+    bool bTeddy = false;
+    bool bBox = false;
+    bool bGiftPaper = false;
+
+    Teddy       teddy("");
+    Teddy       &myTeddy = teddy;
+    Box         box;
+    Box         &myBox = box;
+    GiftPaper   giftPaper;
+    GiftPaper   &myGiftPaper = giftPaper;
 
     if(!bag) {
         std::cerr << "The bag is empty !" << std::endl;
-        return (NULL);
+        return (nullptr);
     }
-    while(bag[size++]) {
-        if(size != 4) {
-            std::cerr << "Cannot prepare a present with missing stuff !" << std::endl;
-            return (NULL);
+    while(bag[size]) {
+        size++;
+    }
+    if(size != 3) {
+        std::cerr << "Cannot prepare a present with missing stuff !" << std::endl;
+        return (nullptr);
+    }
+    for(int i = 0; i < 3; i++) {
+        switch(bag[i]->getType()) {
+            case TEDDY :
+                myTeddy = dynamic_cast<Teddy&>(*bag[i]);
+                bTeddy = true;
+                break;
+            case BOX :
+                myBox = dynamic_cast<Box&>(*bag[i]);
+                bBox = true;
+                break;
+            case GIFTPAPER :
+                myGiftPaper = dynamic_cast<GiftPaper&>(*bag[i]);
+                bGiftPaper = true;
+                break;
         }
     }
-    if(size == 3 && bag[0]->getType() == TEDDY && bag[1]->getType() == BOX && bag[2]->getType() == GIFTPAPER) {
-        teddy = (Teddy *) bag[0];
-        box = (Box *) bag[1];
-        giftPaper = (GiftPaper *) bag[2];
 
-        box->openMe();
-        box->wrapMeThat(teddy);
-        box->closeMe();
-        giftPaper->wrapMeThat(box);
+    if(bTeddy && bBox && bGiftPaper) {
+        myBox.openMe();
+        myBox.wrapMeThat(&myTeddy);
+        myBox.closeMe();
+        myGiftPaper.wrapMeThat(&myBox);
+        std::cout << "The present is ready !" << std::endl;
+    } else {
+        std::cerr << "Cannot prepare a present with missing stuff !" << std::endl;
+        return (nullptr);
     }
 
-    return (giftPaper);
+    return (&myGiftPaper);
 }

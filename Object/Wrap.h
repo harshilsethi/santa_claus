@@ -23,7 +23,7 @@ public:
 
     Object  *getObject() const;
 
-    virtual void wrapMeThat(Object &object) = 0;
+    virtual void wrapMeThat(Object *object) = 0;
     virtual void openMe();
     virtual void closeMe();
 
