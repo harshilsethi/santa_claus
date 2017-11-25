@@ -31,13 +31,16 @@ int main() {
 	PapaXmasTable table1;
 	PapaXmasTable table2;
 
-	// Elf creation
-	IElf *elf1 = new PapaXmasElf();
+	// Elves creation
+	PapaXmasElf elf1;
 	std::string kennyName = "Kenny";
-	IElf *elf2 = new PapaXmasElf(kennyName);
+	PapaXmasElf elf2(kennyName);
 
 	// Assignment to tables and conveyor belts
-
+	elf1.setTable(table1);
+	elf2.setTable(table2);
+	elf1.look();
+	elf2.look();
 
 	return 0;
 }

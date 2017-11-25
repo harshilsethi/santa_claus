@@ -11,7 +11,8 @@
 #include "ITable.h"
 #include "../Object/Teddy.h"
 #include "../Object/LittlePony.h"
-
+#include "../Object/Box.h"
+#include "../Object/GiftPaper.h"
 
 class PapaXmasTable : public ITable {
 public:
