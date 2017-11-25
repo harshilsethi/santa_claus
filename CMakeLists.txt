@@ -30,7 +30,6 @@ set(SOURCE_FILES
         Object/Wrap.h
         Santa/gift1.xml
         Santa/gift2.xml
-        Santa/Santa.cpp
         main.cpp)
 
 add_executable(santa_claus ${SOURCE_FILES})

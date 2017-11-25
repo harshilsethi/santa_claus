@@ -21,19 +21,13 @@ protected:
 
 public:
         Wrap();
-
         virtual ~Wrap();
 
         Object *getObject() const;
-
         virtual void wrapMeThat(Object *object) = 0;
-
         virtual void openMe();
-
         virtual void closeMe();
-
         Object *MyUnitTests(Object **);
-
         void displayPresendToy(std::string, std::string);
         void cerr(std::string);
 };

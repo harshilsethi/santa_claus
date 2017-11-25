@@ -128,7 +128,9 @@ void PapaXmasElf::takeFromTable(Object &object) {
 std::list<std::string> PapaXmasElf::look() {
 	std::list<Object> temp = myTable->getObjects();
 	std::list<std::string> objectList;
+	std::string firstMsg = this->getName() + ": What's on this table...?";
 
+	talk(firstMsg);
 	if (temp.empty())
 		std::cout << "There is no object on the table !" << std::endl;
 	else {

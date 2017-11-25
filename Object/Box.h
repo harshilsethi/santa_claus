@@ -16,7 +16,6 @@ public:
 	virtual ~Box();
 
 	bool isOpen();
-
 	virtual void wrapMeThat(Object *object);
 };
 

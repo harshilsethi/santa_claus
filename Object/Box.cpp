@@ -6,6 +6,7 @@
 */
 
 #include "Box.h"
+#include "Toy.h"
 
 Box::Box() {
 	type = BOX;
@@ -18,7 +19,8 @@ bool Box::isOpen() {
 }
 
 void Box::wrapMeThat(Object *object) {
-	if(open && content == nullptr) {
+	if (open && content == nullptr) {
 		content = object;
+		std::cout << "The toy " << object->getTitle() << " is wrapped in a box !" << std::endl;
 	}
 }
