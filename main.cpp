@@ -27,7 +27,8 @@ int main() {
 	pObject[3] = nullptr;
 	wrap->MyUnitTests(pObject);
 
-	PapaXmasTable table;
+	PapaXmasTable table1;
+	PapaXmasTable table2;
 
 	// Elf creation
 	IElf *elf1 = new PapaXmasElf();
