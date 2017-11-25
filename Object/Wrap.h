@@ -13,24 +13,29 @@
 
 #include "Object.h"
 
-class Wrap : public Object
-{
+class Wrap : public Object {
 protected:
-    bool    open;
+        bool open;
 
-    Object  *content;
+        Object *content;
 
 public:
-    Wrap();
-    virtual ~Wrap();
+        Wrap();
 
-    Object  *getObject() const;
+        virtual ~Wrap();
 
-    virtual void wrapMeThat(Object *object) = 0;
-    virtual void openMe();
-    virtual void closeMe();
+        Object *getObject() const;
 
-    Object *MyUnitTests(Object **);
+        virtual void wrapMeThat(Object *object) = 0;
+
+        virtual void openMe();
+
+        virtual void closeMe();
+
+        Object *MyUnitTests(Object **);
+
+        void displayPresendToy(std::string, std::string);
+        void cerr(std::string);
 };
 
 #endif //SANTA_CLAUS_WRAP_H

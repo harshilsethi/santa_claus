@@ -7,6 +7,7 @@
 
 #include "Wrap.h"
 #include "Teddy.h"
+#include "LittlePony.h"
 #include "Box.h"
 #include "GiftPaper.h"
 
@@ -15,67 +16,88 @@ Wrap::Wrap() = default;
 Wrap::~Wrap() = default;
 
 Object* Wrap::getObject() const {
-	return (content);
+        return (content);
 }
 
 void Wrap::openMe() {
-	open = true;
+        open = true;
 }
 
 void Wrap::closeMe() {
-	open = false;
+        open = false;
 }
 
 Object* Wrap::MyUnitTests(Object **bag) {
-	int size = 0;
+        int size = 0;
 
-	bool bTeddy = false;
-	bool bBox = false;
-	bool bGiftPaper = false;
+        bool bTeddy = false;
+        bool bLittlePony = false;
+        bool bBox = false;
+        bool bGiftPaper = false;
 
-	Teddy       teddy("");
-	Teddy       &myTeddy = teddy;
-	Box         box;
-	Box         &myBox = box;
-	GiftPaper   giftPaper;
-	GiftPaper   &myGiftPaper = giftPaper;
+        Teddy       teddy("");
+        Teddy       &myTeddy = teddy;
+        LittlePony  littlePony("");
+        LittlePony  &myLittlePony = littlePony;
+        Box         box;
+        Box         &myBox = box;
+        GiftPaper   giftPaper;
+        GiftPaper   &myGiftPaper = giftPaper;
 
-	if(!bag) {
-		std::cerr << "The bag is empty !" << std::endl;
-		return (nullptr);
-	}
-	while(bag[size]) {
-		size++;
-	}
-	if(size != 3) {
-		std::cerr << "Cannot prepare a present with missing stuff !" << std::endl;
-		return (nullptr);
-	}
-	for(int i = 0; i < 3; i++) {
-		switch(bag[i]->getType()) {
-			case TEDDY :
-				myTeddy = dynamic_cast<Teddy&>(*bag[i]);
-				bTeddy = true;
-				break;
-			case BOX :
-				myBox = dynamic_cast<Box&>(*bag[i]);
-				bBox = true;
-				break;
-			case GIFTPAPER :
-				myGiftPaper = dynamic_cast<GiftPaper&>(*bag[i]);
-				bGiftPaper = true;
-				break;
-		}
-	}
-	if(bTeddy && bBox && bGiftPaper) {
-		myBox.openMe();
-		myBox.wrapMeThat(&myTeddy);
-		myBox.closeMe();
-		myGiftPaper.wrapMeThat(&myBox);
-		std::cout << "The present is ready !" << std::endl;
-	} else {
-		std::cerr << "Cannot prepare a present with missing stuff !" << std::endl;
-		return (nullptr);
-	}
-	return (&myGiftPaper);
+        if(!bag) {
+                cerr("The bag is empty !");
+                return (nullptr);
+        }
+        while(bag[size]) {
+                size++;
+        }
+        if(size != 3) {
+                cerr("Cannot prepare a present with missing stuff !");
+                return (nullptr);
+        }
+        for(int i = 0; i < 3; i++) {
+                switch(bag[i]->getType()) {
+                        case TEDDY :
+                                myTeddy = dynamic_cast<Teddy&>(*bag[i]);
+                                bTeddy = true;
+                                break;
+                        case LITTLEPONY :
+                                myLittlePony = dynamic_cast<LittlePony&>(*bag[i]);
+                                bLittlePony = true;
+                                break;
+                        case BOX :
+                                myBox = dynamic_cast<Box&>(*bag[i]);
+                                bBox = true;
+                                break;
+                        case GIFTPAPER :
+                                myGiftPaper = dynamic_cast<GiftPaper&>(*bag[i]);
+                                bGiftPaper = true;
+                                break;
+                }
+        }
+        if(bBox && bGiftPaper && (bTeddy || bLittlePony)) {
+                myBox.openMe();
+                if(bTeddy) {
+                        displayPresendToy("Teddy", myTeddy.getTitle());
+                        myBox.wrapMeThat(&myTeddy);
+                }
+                if(bLittlePony) {
+                        displayPresendToy("LittlePony", myLittlePony.getTitle());
+                        myBox.wrapMeThat(&myLittlePony);
+                }
+                myBox.closeMe();
+                myGiftPaper.wrapMeThat(&myBox);
+        } else {
+                cerr("Cannot prepare a present with missing stuff !");
+                return (nullptr);
+        }
+        return (&myGiftPaper);
+}
+
+void Wrap::displayPresendToy(std::string toy, std::string title) {
+        std::cout << "The present " << toy <<  " : '" << title << "' is ready !" << std::endl;
+}
+
+void Wrap::cerr(std::string message) {
+        std::cerr << message << std::endl;
 }
