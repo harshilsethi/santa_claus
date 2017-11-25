@@ -28,6 +28,8 @@ public:
 	std::string getTitle() const;
 	Object **MyUnitTests();
 	objectType getType() const;
+
+	std::string getTypeName() const;
 };
 
 #endif //SANTA_CLAUS_OBJECT_H

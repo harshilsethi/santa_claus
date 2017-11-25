@@ -8,14 +8,20 @@
 #include "PapaXmasElf.h"
 
 PapaXmasElf::PapaXmasElf() : IElf(), name("Billy") {
+	std::string sentence = "Elf " + name + " ready to prepare gifts !";
+	this->talk(sentence);
 }
 
 PapaXmasElf::PapaXmasElf(std::string &aName) : IElf(), name(aName) {
+	std::string sentence = "Elf " + name + " ready to prepare gifts !";
+	this->talk(sentence);
 }
 
 PapaXmasElf::PapaXmasElf(const PapaXmasElf &elf) : name(elf.getName()) {
         myTable = elf.myTable;
         myBelt = elf.myBelt;
+	std::string sentence = "Elf " + name + " ready to prepare gifts !";
+	this->talk(sentence);
 }
 
 PapaXmasElf::~PapaXmasElf() = default;
