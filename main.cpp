@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Object/Teddy.h"
 #include "Object/LittlePony.h"
 #include "Object/Wrap.h"
@@ -6,6 +7,7 @@
 #include "Object/GiftPaper.h"
 #include "Xmas/ITable.h"
 #include "Xmas/PapaXmasTable.h"
+#include "Xmas/PapaXmasElf.h"
 
 int main() {
 	Wrap *wrap = nullptr;
@@ -28,6 +30,11 @@ int main() {
 	PapaXmasTable table;
 	ITable *table1 = table.createTable();
 	table1->getObjects();
+
+	//manips perso
+
+	PapaXmasElf e("Billy");
+
 
 	return 0;
 }

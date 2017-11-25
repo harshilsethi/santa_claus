@@ -17,7 +17,7 @@ class PapaXmasElf : public IElf
 {
 public:
         PapaXmasElf();
-        PapaXmasElf(std::string &);
+        PapaXmasElf(std::string);
         PapaXmasElf(const PapaXmasElf &);
         ~PapaXmasElf();
         ITable *getTable() const;
