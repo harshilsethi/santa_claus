@@ -12,12 +12,13 @@ PapaXmasElf::PapaXmasElf() : IElf(), name("Billy") {
 	this->talk(sentence);
 }
 
-PapaXmasElf::PapaXmasElf(std::string &aName) : IElf(), name(aName) {
+
+PapaXmasElf::PapaXmasElf(std::string aName) : IElf(), name(aName) {
 	std::string sentence = "Elf " + name + " ready to prepare gifts !";
 	this->talk(sentence);
 }
 
-PapaXmasElf::PapaXmasElf(const PapaXmasElf &elf) : name(elf.getName()) {
+PapaXmasElf::PapaXmasElf(const PapaXmasElf &elf) : IElf(), name(elf.getName()) {
         myTable = elf.myTable;
         myBelt = elf.myBelt;
 	std::string sentence = "Elf " + name + " ready to prepare gifts !";
@@ -89,6 +90,7 @@ void PapaXmasElf::putOnTable(Object &object) {
 void PapaXmasElf::takeFromBelt(Object &object) {
         try {
                 if(myBelt->getObject() != nullptr){
+                        object.isTaken();
                         putOnTable(object);
                         myBelt->setObject(nullptr);
                 }else{
@@ -107,6 +109,7 @@ void PapaXmasElf::takeFromTable(Object &object) {
                 bool find = false;
                 for (it = temp.begin(); it != temp.end(); ++it) {
                         if (it->getTitle() == object.getTitle() && !find) {
+                                object.isTaken();
                                 putOnBelt(*it);
                                 temp.erase(it);
                                 --it;

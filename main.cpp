@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Object/Teddy.h"
 #include "Object/LittlePony.h"
 #include "Object/Wrap.h"
