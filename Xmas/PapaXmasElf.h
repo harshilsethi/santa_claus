@@ -27,8 +27,6 @@ public:
 
         void pressInButton();
         void pressOutButton();
-        void putOnTable(Object &);
-        void putOnBelt(Object &);
         void takeFromTable(Object &);
         void takeFromBelt(Object &);
         std::list<std::string> look();
@@ -37,13 +35,8 @@ public:
         void report(std::string &);
 
 private:
-        /*
-          Dans le cas ou utiliser directement les interface ne fonctionne pas
-	  PapaXmasTable *xmasTable;
-	  PapaXmasConveyorBelt *xmasConveyorBelt;
-	  TableRand *randomTable;
-	  ConveyorBeltRand *randomBelt;
-        */
+        void putOnTable(Object &);
+        void putOnBelt(Object &);
         const std::string name;
         ITable *myTable;
         IConveyorBelt *myBelt;

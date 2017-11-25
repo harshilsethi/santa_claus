@@ -62,20 +62,14 @@ void PapaXmasElf::pressOutButton() {
 
 void PapaXmasElf::putOnBelt(Object &object) {
         Object *objectPtr = &object;
-        try {
                 if (myBelt->getObject() == nullptr)
                         myBelt->setObject(objectPtr);
                 else
                         throw getName() + ": There's already an object on the conveyor belt";
-        }
-        catch(std::string &err){
-                report(err);
-        }
 }
 
 void PapaXmasElf::putOnTable(Object &object) {
-        try {
-                std::list<Object> temp = myTable->getObjects();
+        std::list<Object> temp = myTable->getObjects();
 
                 if (temp.size() < 10) {
                         std::cout << "The present is ready !" << std::endl;
@@ -83,15 +77,13 @@ void PapaXmasElf::putOnTable(Object &object) {
                         myTable->setObjects(temp);
                 }else
                         throw getName() + ": I have no more room on my table.";
-        }
-        catch(std::string &err){
-                report(err);
-        }
+
 }
 
 void PapaXmasElf::takeFromBelt(Object &object) {
         try {
                 if(myBelt->getObject() != nullptr){
+                        putOnTable(object);
                         myBelt->setObject(nullptr);
                 }else{
                         throw getName() + ": There's no object on the conveyor belt.";
@@ -109,6 +101,7 @@ void PapaXmasElf::takeFromTable(Object &object) {
                 bool find = false;
                 for (it = temp.begin(); it != temp.end(); ++it) {
                         if (it->getTitle() == object.getTitle() && !find) {
+                                putOnBelt(*it);
                                 temp.erase(it);
                                 --it;
                                 find = true;
@@ -127,7 +120,6 @@ std::list<std::string> PapaXmasElf::look() {
         std::list<Object> temp = myTable->getObjects();
         std::list<Object>::iterator it;
         std::list<std::string> objectList;
-
         for(it = temp.begin(); it != temp.end(); ++it){
                 std::cout << it->getTitle() << std::endl;
                 objectList.push_back(it->getTitle());
@@ -135,12 +127,8 @@ std::list<std::string> PapaXmasElf::look() {
         return(objectList);
 }
 
-<<<<<<< HEAD:Object/PapaXmasElf.cpp
-std::string PapaXmasElf::getName() const
-{
-=======
-const std::string PapaXmasElf::getName() const {
->>>>>>> 51a9822c3da16557398261b38cdc8f55ad0e107b:Xmas/PapaXmasElf.cpp
+
+std::string PapaXmasElf::getName() const {
         return (name);
 }
 
