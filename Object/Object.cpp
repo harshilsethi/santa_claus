@@ -5,6 +5,7 @@
 ** Object.cpp
 */
 
+#include <iostream>
 #include "Object.h"
 #include "LittlePony.h"
 #include "Teddy.h"
@@ -16,6 +17,19 @@ Object::~Object() = default;
 
 objectType Object::getType() const {
 	return (type);
+}
+
+std::string Object::getTypeName() const {
+	switch (this->getType()) {
+		case objectType::BOX:
+			return "box";
+		case objectType::GIFTPAPER:
+			return "gift paper";
+		case objectType::LITTLEPONY:
+			return  "little pony";
+		case objectType::TEDDY:
+			return "teddy";
+	}
 }
 
 std::string Object::getTitle() const {

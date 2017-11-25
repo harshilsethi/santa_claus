@@ -7,6 +7,7 @@
 #include "Object/GiftPaper.h"
 #include "Xmas/ITable.h"
 #include "Xmas/PapaXmasTable.h"
+#include "Xmas/IElf.h"
 #include "Xmas/PapaXmasElf.h"
 
 int main() {
@@ -28,12 +29,13 @@ int main() {
 	wrap->MyUnitTests(pObject);
 
 	PapaXmasTable table;
-	ITable *table1 = table.createTable();
-	table1->getObjects();
 
-	//manips perso
+	// Elf creation
+	IElf *elf1 = new PapaXmasElf();
+	std::string kennyName = "Kenny";
+	IElf *elf2 = new PapaXmasElf(kennyName);
 
-	PapaXmasElf e("Billy");
+	// Assignment to tables and conveyor belts
 
 
 	return 0;

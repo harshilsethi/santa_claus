@@ -9,6 +9,9 @@
 #define PAPAXMASTABLE_H__
 
 #include "ITable.h"
+#include "../Object/Teddy.h"
+#include "../Object/LittlePony.h"
+
 
 class PapaXmasTable : public ITable {
 public:
