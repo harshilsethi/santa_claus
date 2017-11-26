@@ -105,7 +105,7 @@ void PapaXmasElf::takeFromBelt() {
 			myBelt->getObject();
 			object.isTaken();
 			putOnTable(object);
-			myBelt->getObject()->~Object();
+			myBelt->setObject(nullptr);
 		}else{
 			throw std::string(getName() + ": There's no object on the conveyor belt.");
 		}
