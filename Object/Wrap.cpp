@@ -101,3 +101,9 @@ void Wrap::displayPresendToy(std::string toy, std::string title) {
 void Wrap::cerr(std::string message) {
         std::cerr << message << std::endl;
 }
+
+bool Wrap::isEmpty() {
+        if(!this->content)
+                return true;
+        return false;
+}

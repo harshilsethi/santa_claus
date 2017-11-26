@@ -3,6 +3,7 @@
   <box>
     <toy>
       <type>LITTLEPONY</type>
+      <object>1</object>
       <title>Black Pegasus</title>
     </toy>
   </box>
