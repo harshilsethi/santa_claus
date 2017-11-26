@@ -14,8 +14,8 @@ GiftPaper::GiftPaper() {
 
 GiftPaper::~GiftPaper() = default;
 
-void GiftPaper::wrapMeThat(Object *object) {
+void GiftPaper::wrapMeThat(Object &object) {
     if(content == nullptr) {
-        content = object;
+        content = &object;
     }
 }

@@ -15,28 +15,36 @@ int main() {
 	Wrap *wrap = nullptr;
 
 
-	Object *pObjectMissing[4];
+	Object *pObjectMissing[3];
 	pObjectMissing[0] = new Teddy("Ted");
 	pObjectMissing[1] = new Box();
 	pObjectMissing[2] = new Box();
-	pObjectMissing[3] = nullptr;
+//	pObjectMissing[3] = nullptr;
 	wrap->MyUnitTests(pObjectMissing);
 
-	Object *pObject[4];
+	Object *pObject[3];
 	pObject[0] = new LittlePony("Licorn");
 	pObject[1] = new Box();
 	pObject[2] = new GiftPaper();
-	pObject[3] = nullptr;
+//	pObject[3] = nullptr;
 	wrap->MyUnitTests(pObject);
 
-	PapaXmasTable table;
+	PapaXmasTable table1;
+	PapaXmasTable table2;
 
-	// Elf creation
-	IElf *elf1 = new PapaXmasElf();
+	// Elves creation
+	PapaXmasElf elf1;
 	std::string kennyName = "Kenny";
-	IElf *elf2 = new PapaXmasElf(kennyName);
+	PapaXmasElf elf2(kennyName);
 
 	// Assignment to tables and conveyor belts
+
+	elf1.setTable(table1);
+	elf2.setTable(table2);
+	elf1.look();
+	elf2.look();
+
+	globalUnitTests Go;
 
 	return 0;
 }

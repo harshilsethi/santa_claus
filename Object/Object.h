@@ -28,7 +28,6 @@ public:
 	std::string getTitle() const;
 	static Object **MyUnitTests();
 	objectType getType() const;
-
 	std::string getTypeName() const;
 };
 

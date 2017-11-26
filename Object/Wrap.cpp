@@ -11,7 +11,8 @@
 #include "Box.h"
 #include "GiftPaper.h"
 
-Wrap::Wrap() = default;
+Wrap::Wrap() : Object() {
+}
 
 Wrap::~Wrap() = default;
 
@@ -51,6 +52,7 @@ Object* Wrap::MyUnitTests(Object **bag) {
         while(bag[size]) {
                 size++;
         }
+        size--;
         if(size != 3) {
                 cerr("Cannot prepare a present with missing stuff !");
                 return (nullptr);
@@ -79,14 +81,14 @@ Object* Wrap::MyUnitTests(Object **bag) {
                 myBox.openMe();
                 if(bTeddy) {
                         displayPresendToy("Teddy", myTeddy.getTitle());
-                        myBox.wrapMeThat(&myTeddy);
+                        myBox.wrapMeThat(myTeddy);
                 }
                 if(bLittlePony) {
                         displayPresendToy("LittlePony", myLittlePony.getTitle());
-                        myBox.wrapMeThat(&myLittlePony);
+                        myBox.wrapMeThat(myLittlePony);
                 }
                 myBox.closeMe();
-                myGiftPaper.wrapMeThat(&myBox);
+                myGiftPaper.wrapMeThat(myBox);
         } else {
                 cerr("Cannot prepare a present with missing stuff !");
                 return (nullptr);

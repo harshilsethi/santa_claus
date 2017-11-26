@@ -6,8 +6,6 @@
 */
 
 #include "PapaXmasTable.h"
-#include "../Object/Box.h"
-#include "../Object/GiftPaper.h"
 
 PapaXmasTable::PapaXmasTable() {
 	this->createTable();
@@ -33,16 +31,6 @@ ITable *PapaXmasTable::createTable() {
 }
 
 std::list<Object> PapaXmasTable::getObjects() {
-	if (objects.empty())
-		std::cout << "There is no object on the table !" << std::endl;
-	else {
-		for (auto &object : objects) {
-			if (!object.getTitle().empty())
-				std::cout << "The object " << object.getTitle() << " is on the Christmas table !" << std::endl;
-			else
-				std::cout << "There is an object " << object.getTypeName() << " on the Christmas table !" << std::endl;
-		}
-	}
 	return objects;
 }
 

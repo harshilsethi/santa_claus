@@ -13,25 +13,20 @@
 
 #include "Object.h"
 
-class Wrap : public Object {
+class Wrap : public Object
+{
 protected:
         bool open;
-
         Object *content;
 
 public:
         Wrap();
-
         virtual ~Wrap();
 
         Object *getObject() const;
-
-        virtual void wrapMeThat(Object *object) = 0;
-
+        virtual void wrapMeThat(Object &object) = 0;
         virtual void openMe();
-
         virtual void closeMe();
-
         static Object *MyUnitTests(Object **);
 
         static void displayPresendToy(std::string, std::string);

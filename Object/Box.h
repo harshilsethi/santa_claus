@@ -16,8 +16,7 @@ public:
 	virtual ~Box();
 
 	bool isOpen();
-
-	virtual void wrapMeThat(Object *object);
+	virtual void wrapMeThat(Object &object);
 };
 
 #endif //SANTA_CLAUS_BOX_H

@@ -20,16 +20,22 @@ objectType Object::getType() const {
 }
 
 std::string Object::getTypeName() const {
+	std::string result;
 	switch (this->getType()) {
 		case objectType::BOX:
-			return "box";
+			result = "box";
+			break;
 		case objectType::GIFTPAPER:
-			return "gift paper";
+			result =  "gift paper";
+			break;
 		case objectType::LITTLEPONY:
-			return  "little pony";
+			result = "little pony";
+			break;
 		case objectType::TEDDY:
-			return "teddy";
+			result = "teddy";
+			break;
 	}
+	return result;
 }
 
 std::string Object::getTitle() const {
