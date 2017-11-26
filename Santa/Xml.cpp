@@ -11,16 +11,24 @@ Xml::Xml() = default;
 
 Xml::~Xml() = default;
 
-Toy Xml::read(const std::string &filename) {
+Gift Xml::read(const std::string &filename) {
         // populate tree structure pt
         boost::property_tree::ptree pt;
         read_xml(filename, pt);
 
         // traverse pt
-        Toy toy;
+        Gift toy;
         toy.type = pt.get<std::string>("giftpaper.box.toy.type");
         toy.object = pt.get<int>("giftpaper.box.toy.object");
-        toy.title = pt.get<std::string>("giftpaper.box.toy.title");
-        std::cout << "In " << filename << ", there is a " << toy.type << " and its name is " << toy.title << " !" << std::endl;
+        toy.title = pt.get<std::string>("giftpaper.box.toy.title");	
+        switch(toy.object) {
+                case 0 :
+			std::cout << "gra hu" << std::endl;
+                        break;
+                case 1 :
+			std::cout << "yo man" << std::endl;
+                        break;
+        }
+	std::cout << "In " << filename << ", there is a " << toy.type << " and its name is " << toy.title << " !" << std::endl;
         return (toy);
 }
