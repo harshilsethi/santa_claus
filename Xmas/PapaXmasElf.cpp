@@ -72,10 +72,11 @@ void PapaXmasElf::pressOutButton() {
 		if (myBelt == nullptr){
 			throw std::string(getName() + ": I don't have a conveyor belt.");
 		}
-		if(myBelt->getObject() != nullptr)
+		if(myBelt->getObject() != nullptr) {
 			myBelt->outButton();
-		else
+		} else {
 			throw std::string(getName() + ": There's no object on the conveyor belt.");
+		}
 	}
 	catch (std::string &err){
 		std::cerr << err << std::endl;

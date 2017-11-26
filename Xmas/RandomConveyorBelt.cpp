@@ -5,6 +5,7 @@
 //
 //
 
+#include <fstream>
 #include "RandomConveyorBelt.h"
 #include "../Object/Wrap.h"
 #include "../Object/GiftPaper.h"
@@ -33,12 +34,21 @@ void RandomConveyorBelt::inButton() {
 
 void RandomConveyorBelt::outButton() {
 	Object *tmp;
-	std::string	gift;
+	std::ofstream file;
+	std::string filename;
+	Xml xml;
+	//std::string    gift;
 	tmp = this->getObject();
 	if (!tmp)
 		return;
-	gift = Xml::serialize(tmp);
-	std::cout << gift << std::endl;
+	std::cout << "Please enter the gift number : ";
+	getline(std::cin, filename);
+	filename = "gift" + filename + ".xml";
+	file.open(filename.c_str());
+	xml.serialize(tmp, file);
+	file.close();
+	//gift = Xml::serialize(tmp);
+	//std::cout << gift << std::endl;
 	std::cout << "Sent to santas claus" << std::endl;
 	this->objectOnbelt = nullptr;
 }
