@@ -10,8 +10,6 @@
 
 #include <boost/property_tree/xml_parser.hpp>
 #include <boost/property_tree/ptree.hpp>
-#include <boost/foreach.hpp>
-#include <boost/foreach_fwd.hpp>
 
 #include <iostream>
 #include <string>
@@ -33,7 +31,5 @@ public:
 
         Toy read(const std::string &);
 };
-
-typedef std::vector<Toy> Toys;
 
 #endif // Xml_H_

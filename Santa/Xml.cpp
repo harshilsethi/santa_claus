@@ -21,6 +21,6 @@ Toy Xml::read(const std::string &filename) {
         toy.type = pt.get<std::string>("giftpaper.box.toy.type");
         toy.object = pt.get<int>("giftpaper.box.toy.object");
         toy.title = pt.get<std::string>("giftpaper.box.toy.title");
-	std::cout << "In " << filename << ", there is a " << toy.type << " and its name is " << toy.title << " !" << std::endl;
+        std::cout << "In " << filename << ", there is a " << toy.type << " and its name is " << toy.title << " !" << std::endl;
         return (toy);
 }
