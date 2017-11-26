@@ -5,25 +5,26 @@
 ** Santa.cpp
 */
 
-#include "Xml.h"
+#include "../Xml/Xml.h"
+#include "../Object/Teddy.h"
 
 int main(int argc, char **argv) {
         Xml xml;
-	std::ofstream file;
-	std::string filename;
-	if(argc == 1) {
-		std::cout << "Please enter the gift number : ";
-		getline(std::cin, filename);
-		filename = "gift" + filename + ".xml";
-		file.open(filename.c_str());
-		xml.serialize(file);
-		file.close();
-	}
-	if(argc > 1) {
-		for(int i = 1; i < argc; i++) {
-			if(argv[i])
-				xml.deserialize(argv[i]);
-		}
-	}
+        Teddy teddy("Ursaring");
+        std::ofstream file;
+        std::string filename;
+        if(argc == 1) {
+                std::cout << "Please enter the gift number : ";
+                getline(std::cin, filename);
+                filename = "gift" + filename + ".xml";
+                file.open(filename.c_str());
+                xml.serialize(&teddy, file);
+                file.close();
+        }
+        if(argc > 1) {
+                for(int i = 1; i < argc; i++) {
+                        xml.deserialize(argv[i]);
+                }
+        }
         return (0);
 }

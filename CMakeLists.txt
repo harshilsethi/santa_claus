@@ -18,8 +18,8 @@ set(SOURCE_FILES
         Object/Toy.h
         Object/Wrap.cpp
         Object/Wrap.h
-        Santa/Xml.cpp
-        Santa/Xml.h
+        Xml/Xml.cpp
+        Xml/Xml.h
         Xmas/IConveyorBelt.h
         Xmas/IElf.h
         Xmas/ITable.h
