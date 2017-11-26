@@ -17,7 +17,7 @@
 
 #include "../Object/Object.h"
 
-struct Toy {
+struct Gift {
         std::string     type;
         int             object;
         std::string     title;
@@ -29,7 +29,7 @@ public:
         Xml();
         ~Xml();
 
-        Toy read(const std::string &);
+        Gift read(const std::string &);
 };
 
 #endif // Xml_H_

@@ -14,13 +14,12 @@ SRC		=  	main.cpp \
 			Xmas/PapaXmasTable.cpp \
 			Xmas/PapaXmasConveyorBelt.cpp \
 
-
 SSRC		=	Santa/Santa.cpp \
 			Santa/Xml.cpp
 
 OBJ		=	$(SRC:.cpp=.o)
 
-SOBJ		=	$(SSRC:.cpp=.o)K
+SOBJ		=	$(SSRC:.cpp=.o)
 
 CXXFLAGS	+= 	-W -Wall -Werror -Wextra
 
