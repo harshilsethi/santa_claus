@@ -12,18 +12,10 @@
 #include "globalUnitTests.h"
 
 void run(PapaXmasElf &elf) {
-	// Assignment to tables and conveyor belts
-	PapaXmasTable table;
-	elf.setTable(table);
-	elf.look();
-
-	PapaXmasConveyorBelt belt;
-	elf.setBelt(belt);
-
 	/**
 	 * Check how many toys are on the table, wrap them and send them to Santa
 	 */
-	std::list<Object> objectsOnTable1 = table.getObjects();
+	std::list<Object> objectsOnTable1 = elf.getTable()->getObjects();
 	std::list<Box> boxes;
 	std::list<Toy> toys;
 	std::list<GiftPaper> papers;
@@ -81,16 +73,6 @@ void run(PapaXmasElf &elf) {
 			++itPaper;
 	}
 	elf.look();
-
-
-	/** Pense-bête : pour récupérer un jouet dans une boîte dans un papier :
-	 *
-	 * 				Object *obj = itPaper->getObject();
-				std::cout << "OBJECT : " << obj->getTypeName() << std::endl;
-				Box obj2 = dynamic_cast<Box &>(*obj);
-				Object *obj3 = obj2.getObject();
-				std::cout << "OBJECT ² : " << obj3->getTypeName() << std::endl;
-	 */
 }
 
 int main() {
@@ -114,13 +96,49 @@ int main() {
 	std::cout << "--- WELCOME TO THE CHRISTMAS FACTORY ---" << std::endl;
 	std::cout << "========================================" << std::endl;
 
-	// Elves creation
+	// Elves creation with BASIC STUFF
 	PapaXmasElf elf1;
 	std::string kennyName = "Kenny";
 	PapaXmasElf elf2(kennyName);
 
+	// Assignment to tables and conveyor belts
+	PapaXmasTable table1;
+	elf1.setTable(table1);
+	elf1.look();
+	PapaXmasConveyorBelt belt1;
+	elf1.setBelt(belt1);
+
+	PapaXmasTable table2;
+	elf2.setTable(table2);
+	elf2.look();
+	PapaXmasConveyorBelt belt2;
+	elf2.setBelt(belt2);
+
 	run(elf1);
-	//run(elf2);
+	run(elf2);
+
+
+	// Elves creation with RANDOM STUFF
+	/*
+	PapaXmasElf elf3("Bob");
+	PapaXmasElf elf4("Diot");
+
+	PapaXmasTable table3;
+	elf3.setTable(table3);
+	elf3.look();
+	PapaXmasConveyorBelt belt3;
+	elf3.setBelt(belt3);
+
+	PapaXmasTable table4;
+	elf4.setTable(table4);
+	elf4.look();
+	PapaXmasConveyorBelt belt4;
+	elf4.setBelt(belt4);
+
+	run(elf3);
+	run(elf4);
+
+	 */
 
 	globalUnitTests Go;
 	return 0;
