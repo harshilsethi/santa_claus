@@ -29,7 +29,8 @@ public:
         Xml();
         ~Xml();
 
-        Gift read(const std::string &);
+        Gift deserialize(const std::string &);
+	void serialize(std::ostream &);
 };
 
 #endif // Xml_H_

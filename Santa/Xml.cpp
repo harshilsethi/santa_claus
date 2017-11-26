@@ -11,10 +11,10 @@ Xml::Xml() = default;
 
 Xml::~Xml() = default;
 
-Gift Xml::read(const std::string &filename) {
+Gift Xml::deserialize(const std::string &filename) {
         // populate tree structure pt
         boost::property_tree::ptree pt;
-        read_xml(filename, pt);
+	read_xml(filename, pt);
 
         // traverse pt
         Gift toy;
@@ -31,4 +31,20 @@ Gift Xml::read(const std::string &filename) {
         }
 	std::cout << "In " << filename << ", there is a " << toy.type << " and its name is " << toy.title << " !" << std::endl;
         return (toy);
+}
+
+void Xml::serialize(std::ostream &os) {
+        boost::property_tree::ptree pt;
+
+        Gift gift;
+        gift.type = "TEDDY"; //toy->getTypeName();
+	gift.object = 0; //toy->getType();
+        gift.title = "Teddyursa"; //toy->getTitle();
+        pt.add("xml.version", 0);
+        boost::property_tree::ptree &node = pt.add("giftpaper.box.toy", "");
+        node.put("type", gift.type);
+        node.put("object", gift.object);
+        node.put("title", gift.title);
+
+        write_xml(os, pt);
 }
