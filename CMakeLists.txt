@@ -18,9 +18,6 @@ set(SOURCE_FILES
         Object/Toy.h
         Object/Wrap.cpp
         Object/Wrap.h
-        Santa/Santa.cpp
-        Santa/Xml.cpp
-        Santa/Xml.h
         Xmas/IConveyorBelt.h
         Xmas/IElf.h
         Xmas/ITable.h
@@ -30,12 +27,6 @@ set(SOURCE_FILES
         Xmas/PapaXmasElf.h
         Xmas/PapaXmasTable.cpp
         Xmas/PapaXmasTable.h
-        Xmas/TableRandom.cpp
-        Xmas/TableRandom.h
-        main.cpp
-        Xml/Xml.cpp
-        Xml/Xml.h
-        Xmas/RandomConeyoyBelt.cpp
-        Xmas/RandomConeyoyBelt.h)
+        main.cpp)
 
 add_executable(santa_claus ${SOURCE_FILES})
