@@ -5,6 +5,7 @@
 //
 //
 
+#include <ctime>
 #include "TableRandom.h"
 #include "../Object/LittlePony.h"
 #include "../Object/Teddy.h"
@@ -13,20 +14,25 @@
 
 ITable *TableRandom::createTable() {
 	int random;
-	for(int i = 0; i < 10; i++){
-		random = (int)random() % 4;
-		switch (random){
-			case 0:
-				objects.push_back(Teddy("randomTeddy"));
-			case 1:
-				objects.push_back(LittlePony("randomLittlePony"));
-			case 2:
-				objects.push_back(Box());
-			case 3:
-				objects.push_back(GiftPaper());
-		}
-		this->setObjects(objects);
+	std::list<Object> _objects;
+	Teddy ted("Ted");
+	LittlePony rainbowDash("Rainbow Dash");
+	Box box;
+	GiftPaper giftPaper1;
+
+	std::srand(std::time(0));
+	for (int i = 0; i < 10; i++) {
+		random = (int) (std::rand() % 4);
+		if (random == 0)
+			_objects.push_back(rainbowDash);
+		if (random == 1)
+			_objects.push_back(ted);
+		if (random == 2)
+			_objects.push_back(box);
+		if (random == 3)
+			_objects.push_back(giftPaper1);
 	}
+	this->setObjects(_objects);
 	return this;
 }
 
