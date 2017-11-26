@@ -62,10 +62,11 @@ void globalUnitTests::wrapUnitTests() {
 	std::cout << "Testing Wrap class: " << std::endl << std::endl;
 	try {
 		Object *tryToWrap;
-		Object **listOfObject = new Object*[3];
+		Object **listOfObject = new Object*[4];
 		listOfObject[0] = new Teddy("Baloo");
 		listOfObject[1] = new Box();
 		listOfObject[2] = new GiftPaper();
+		listOfObject[3] = nullptr;
 		tryToWrap = Wrap::MyUnitTests(listOfObject);
 
 		if(tryToWrap->getType() == GIFTPAPER)
@@ -83,5 +84,19 @@ void globalUnitTests::elfTableUnitTests() {
 	PapaXmasElf e("Leeroy");
 	PapaXmasTable table;
 	PapaXmasConveyorBelt cBelt;
+
+	e.look();
+	e.pressInButton();
+
+	e.setTable(table);
+	e.setBelt(cBelt);
+
+
+	e.look();
+	e.pressInButton();
+	e.takeFromBelt();
+	e.look();
+	e.pressInButton();
+
 	printOk("==================================");
 }

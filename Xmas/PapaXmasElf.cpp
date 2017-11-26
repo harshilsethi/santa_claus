@@ -8,12 +8,16 @@
 #include "PapaXmasElf.h"
 
 PapaXmasElf::PapaXmasElf() : IElf(), name("Billy") {
+	myTable = nullptr;
+	myBelt = nullptr;
 	std::string sentence = "Elf " + name + " ready to prepare gifts !";
 	this->talk(sentence);
 }
 
 
 PapaXmasElf::PapaXmasElf(std::string aName) : IElf(), name(aName) {
+	myTable = nullptr;
+	myBelt = nullptr;
 	std::string sentence = "Elf " + name + " ready to prepare gifts !";
 	this->talk(sentence);
 }
@@ -45,9 +49,13 @@ void PapaXmasElf::setBelt(IConveyorBelt &belt) {
 
 void PapaXmasElf::pressInButton() {
 	try {
-		if(myBelt->getObject() != nullptr)
+		if (myBelt == nullptr){
+			throw std::string(getName() + ": I don't have a conveyor belt.");
+		}
+		if(myBelt->getObject() == nullptr) {
 			myBelt->inButton();
-		else
+			talk(getName() + ": there is now a " + myBelt->getObject()->getTitle() + "on the conveyor belt");
+		}else
 			throw std::string(getName() + ": There's already an object on the conveyor belt.");
 	}
 	catch (std::string &err){
@@ -57,6 +65,9 @@ void PapaXmasElf::pressInButton() {
 
 void PapaXmasElf::pressOutButton() {
 	try {
+		if (myBelt == nullptr){
+			throw std::string(getName() + ": I don't have a conveyor belt.");
+		}
 		if(myBelt->getObject() == nullptr)
 			myBelt->outButton();
 		else
@@ -87,12 +98,14 @@ void PapaXmasElf::putOnTable(Object &object) {
 
 }
 
-void PapaXmasElf::takeFromBelt(Object &object) {
+void PapaXmasElf::takeFromBelt() {
+	Object object = *myBelt->getObject();
 	try {
 		if(myBelt->getObject() != nullptr){
+			myBelt->getObject();
 			object.isTaken();
 			putOnTable(object);
-			myBelt->setObject(nullptr);
+			myBelt->getObject()->~Object();
 		}else{
 			throw std::string(getName() + ": There's no object on the conveyor belt.");
 		}
@@ -126,33 +139,44 @@ void PapaXmasElf::takeFromTable(Object &object) {
 }
 
 std::list<std::string> PapaXmasElf::look() {
-	std::list<Object> temp = myTable->getObjects();
+	std::list<Object> temp;
 	std::list<std::string> objectList;
-	std::string firstMsg = this->getName() + ": What's on this table...?";
+	try {
+		if (myTable != nullptr) {
+			temp = myTable->getObjects();
+			std::string firstMsg = this->getName() + ": What's on this table...?";
 
-	talk(firstMsg);
-	if (temp.empty())
-		std::cout << "There is no object on the table !" << std::endl;
-	else {
-		for (auto &object : temp) {
-			if (!object.getTitle().empty())
-				std::cout << "The object " << object.getTitle() << " is on the Christmas table !" << std::endl;
-			else
-				std::cout << "There is an object " << object.getTypeName() << " on the Christmas table !" << std::endl;
-			objectList.push_back(object.getTitle());
-		}
+			talk(firstMsg);
+			if (temp.empty())
+				std::cout << "There is no object on the table !" << std::endl;
+			else {
+				for (auto &object : temp) {
+					if (!object.getTitle().empty())
+						std::cout << "The object " << object.getTitle()
+							  << " is on the Christmas table !" << std::endl;
+					else
+						std::cout << "There is an object " << object.getTypeName()
+							  << " on the Christmas table !" << std::endl;
+					objectList.push_back(object.getTitle());
+				}
+			}
+			return (objectList);
+		} else
+			throw std::string(getName() + ": I don't have a table");
 	}
-	return (objectList);
+	catch (std::string &err){
+		report(err);
+	}
 }
 
 std::string PapaXmasElf::getName() const {
 	return (name);
 }
 
-void PapaXmasElf::talk(std::string &line) {
+void PapaXmasElf::talk(const std::string &line) {
 	std::cout << line << std::endl;
 }
 
-void PapaXmasElf::report(std::string &line) {
+void PapaXmasElf::report(const std::string &line) {
 	std::cerr << line << std::endl;
 }

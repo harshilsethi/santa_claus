@@ -52,7 +52,6 @@ Object* Wrap::MyUnitTests(Object **bag) {
         while(bag[size]) {
                 size++;
         }
-        size--;
         if(size != 3) {
                 cerr("Cannot prepare a present with missing stuff !");
                 return (nullptr);
