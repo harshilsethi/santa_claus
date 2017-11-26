@@ -53,16 +53,16 @@ void run(PapaXmasElf &elf) {
 			std::cout << elf.getName() << ": let's open this box..." << std::endl;
 			itBox->openMe();
 			toy.isTaken();
-			itBox->wrapMeThat(&toy);
+			itBox->wrapMeThat(toy);
 			itBox->closeMe();
 			if (itPaper != papers.end())
-				itPaper->wrapMeThat(&*itBox);
+				itPaper->wrapMeThat(*itBox);
 			else
 				elf.report(errEmptyLists);
 		} else {
 			if (itPaper != papers.end()) {
 				toy.isTaken();
-				itPaper->wrapMeThat(&toy);
+				itPaper->wrapMeThat(toy);
 			} else
 				elf.report(errEmptyLists);
 		}

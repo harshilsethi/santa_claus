@@ -28,9 +28,9 @@ public:
         virtual void wrapMeThat(Object &object) = 0;
         virtual void openMe();
         virtual void closeMe();
-        Object *MyUnitTests(Object **);
-        void displayPresendToy(std::string, std::string);
-        void cerr(std::string);
+        static Object *MyUnitTests(Object **);
+        static void displayPresendToy(std::string, std::string);
+        static void cerr(std::string);
 };
 
 #endif //SANTA_CLAUS_WRAP_H
