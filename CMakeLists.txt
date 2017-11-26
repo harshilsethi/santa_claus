@@ -8,28 +8,30 @@ set(SOURCE_FILES
         Object/Box.h
         Object/GiftPaper.cpp
         Object/GiftPaper.h
-        Xmas/IElf.h
-        Xmas/ITable.h
-        Xmas/IConveyorBelt.h
         Object/LittlePony.cpp
         Object/LittlePony.h
         Object/Object.cpp
         Object/Object.h
-        Xmas/PapaXmasTable.cpp
-        Xmas/PapaXmasTable.h
-        Xmas/PapaXmasConveyorBelt.cpp
-        Xmas/PapaXmasConveyorBelt.h
         Object/Teddy.cpp
         Object/Teddy.h
         Object/Toy.cpp
         Object/Toy.h
-        Xmas/IElf.h
-        Xmas/PapaXmasElf.cpp
-        Xmas/PapaXmasElf.h
         Object/Wrap.cpp
         Object/Wrap.h
-        Santa/gift1.xml
-        Santa/gift2.xml
+        Santa/Santa.cpp
+        Santa/Xml.cpp
+        Santa/Xml.h
+        Xmas/IConveyorBelt.h
+        Xmas/IElf.h
+        Xmas/ITable.h
+        Xmas/PapaXmasConveyorBelt.cpp
+        Xmas/PapaXmasConveyorBelt.h
+        Xmas/PapaXmasElf.cpp
+        Xmas/PapaXmasElf.h
+        Xmas/PapaXmasTable.cpp
+        Xmas/PapaXmasTable.h
+        Xmas/TableRandom.cpp
+        Xmas/TableRandom.h
         main.cpp)
 
 add_executable(santa_claus ${SOURCE_FILES})
