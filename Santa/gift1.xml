@@ -3,6 +3,7 @@
   <box>
     <toy>
       <type>TEDDY</type>
+      <object>0</object>
       <title>Ted</title>
     </toy>
   </box>
