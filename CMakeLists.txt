@@ -30,12 +30,12 @@ set(SOURCE_FILES
         Xmas/PapaXmasElf.h
         Xmas/PapaXmasTable.cpp
         Xmas/PapaXmasTable.h
+        Xmas/RandomConeyoyBelt.cpp
+        Xmas/RandomConeyoyBelt.h
         Xmas/TableRandom.cpp
         Xmas/TableRandom.h
         main.cpp
-        Xml/Xml.cpp
-        Xml/Xml.h
-        Xmas/RandomConeyoyBelt.cpp
-        Xmas/RandomConeyoyBelt.h)
+        globalUnitTests.cpp
+        globalUnitTests.h)
 
 add_executable(santa_claus ${SOURCE_FILES})

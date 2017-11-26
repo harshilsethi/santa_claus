@@ -9,6 +9,7 @@
 #include "Toy.h"
 
 Box::Box() {
+	title = "Box";
 	type = BOX;
 }
 
@@ -18,9 +19,9 @@ bool Box::isOpen() {
 	return (open);
 }
 
-void Box::wrapMeThat(Object *object) {
+void Box::wrapMeThat(Object &object) {
 	if (open && content == nullptr) {
-		content = object;
-		std::cout << "The " << object->getTypeName() << " " << object->getTitle() << " is wrapped in a box !" << std::endl;
+		content = &object;
+		std::cout << "The " << object.getTypeName() << " " << object.getTitle() << " is wrapped in a box !" << std::endl;
 	}
 }
