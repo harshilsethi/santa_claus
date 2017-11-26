@@ -34,6 +34,8 @@ set(SOURCE_FILES
         Xmas/TableRandom.h
         main.cpp
         Xml/Xml.cpp
-        Xml/Xml.h)
+        Xml/Xml.h
+        Xmas/RandomConeyoyBelt.cpp
+        Xmas/RandomConeyoyBelt.h)
 
 add_executable(santa_claus ${SOURCE_FILES})
