@@ -28,11 +28,11 @@ public:
         void pressInButton();
         void pressOutButton();
         void takeFromTable(Object &);
-        void takeFromBelt(Object &);
+        void takeFromBelt();
         std::list<std::string> look();
         std::string getName() const;
-        void talk(std::string &);
-        void report(std::string &);
+        void talk(const std::string &);
+        void report(const std::string &);
 
 private:
         void putOnTable(Object &);

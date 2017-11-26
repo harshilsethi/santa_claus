@@ -21,11 +21,11 @@ public:
         virtual void putOnTable(Object &) = 0;
         virtual void putOnBelt(Object &) = 0;
         virtual void takeFromTable(Object &) = 0;
-        virtual void takeFromBelt(Object &) = 0;
+        virtual void takeFromBelt() = 0;
         virtual std::list<std::string> look() = 0;
         virtual std::string getName() const = 0;
-        virtual void talk(std::string &) = 0;
-        virtual void report(std::string &) = 0;
+        virtual void talk(const std::string &) = 0;
+        virtual void report(const std::string &) = 0;
 };
 
 #endif //SANTA_CLAUS_IELF_H
