@@ -21,6 +21,6 @@ bool Box::isOpen() {
 void Box::wrapMeThat(Object *object) {
 	if (open && content == nullptr) {
 		content = object;
-		std::cout << "The toy " << object->getTitle() << " is wrapped in a box !" << std::endl;
+		std::cout << "The " << object->getTypeName() << " " << object->getTitle() << " is wrapped in a box !" << std::endl;
 	}
 }

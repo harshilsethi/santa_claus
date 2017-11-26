@@ -25,7 +25,10 @@ PapaXmasElf::PapaXmasElf(const PapaXmasElf &elf) : IElf(), name(elf.getName()) {
 	this->talk(sentence);
 }
 
-PapaXmasElf::~PapaXmasElf() = default;
+PapaXmasElf::~PapaXmasElf() {
+	std::string lastSentence = name + ": My job is finished, Merry Christmas ! ";
+	this->talk(lastSentence);
+};
 
 ITable *PapaXmasElf::getTable() const {
 	return (myTable);
@@ -130,6 +133,7 @@ std::list<std::string> PapaXmasElf::look() {
 	std::list<std::string> objectList;
 	std::string firstMsg = this->getName() + ": What's on this table...?";
 
+	std::cout << "---" << std::endl;
 	talk(firstMsg);
 	if (temp.empty())
 		std::cout << "There is no object on the table !" << std::endl;
@@ -142,6 +146,7 @@ std::list<std::string> PapaXmasElf::look() {
 			objectList.push_back(object.getTitle());
 		}
 	}
+	std::cout << "---" << std::endl;
 	return (objectList);
 }
 
