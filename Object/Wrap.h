@@ -24,11 +24,11 @@ public:
         virtual ~Wrap();
 
         Object *getObject() const;
+	bool isEmpty();
         virtual void wrapMeThat(Object &object) = 0;
         virtual void openMe();
         virtual void closeMe();
         static Object *MyUnitTests(Object **);
-
         static void displayPresendToy(std::string, std::string);
         static void cerr(std::string);
 };
