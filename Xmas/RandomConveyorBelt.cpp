@@ -39,13 +39,20 @@ void RandomConveyorBelt::outButton() {
 	Xml xml;
 	//std::string    gift;
 	tmp = this->getObject();
+	Object *toy;
+
 	if (!tmp)
 		return;
+	if (((static_cast<Wrap&>(*tmp)).getObject())->getTypeName() == "teddy" || ((static_cast<Wrap&>(*tmp)).getObject())->getTypeName() =="little pony") {
+		toy = (dynamic_cast<Wrap&>(*tmp)).getObject();
+	} else {
+		std::cout << "///// TOY ? : " <<  (dynamic_cast<Wrap&>(static_cast<Wrap&>(*tmp)).getObject())->getTypeName()<< std::endl;
+	}
 	std::cout << "Please enter the gift number : ";
 	getline(std::cin, filename);
 	filename = "gift" + filename + ".xml";
 	file.open(filename.c_str());
-	xml.serialize(tmp, file);
+	xml.serialize(toy, file);
 	file.close();
 	//gift = Xml::serialize(tmp);
 	//std::cout << gift << std::endl;
