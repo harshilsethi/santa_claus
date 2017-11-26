@@ -52,3 +52,7 @@ Object** Object::MyUnitTests() {
 	pObject[1] = new Teddy("cuddles");
 	return pObject;
 }
+
+bool operator== (Object const &obj1, Object const &obj2) {
+	return obj1.getTitle() == obj2.getTitle();
+}

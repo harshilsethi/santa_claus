@@ -22,6 +22,7 @@ public:
 	ITable *createTable() override;
 	std::list<Object> getObjects() override;
 	void setObjects(std::list<Object> objects) override;
+	void deleteFromTable(Object &object) override;
 
 protected:
 	std::list<Object> objects;

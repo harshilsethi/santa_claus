@@ -37,3 +37,12 @@ std::list<Object> PapaXmasTable::getObjects() {
 void PapaXmasTable::setObjects(std::list<Object> objects) {
 	this->objects = std::move(objects);
 }
+
+void PapaXmasTable::deleteFromTable(Object &object) {
+	for (std::list<Object>::iterator it = objects.begin(); it != objects.end(); ++it) {
+		if (it->getTitle() == object.getTitle()) {
+			this->objects.remove(*it);
+			it--;
+		}
+	}
+}

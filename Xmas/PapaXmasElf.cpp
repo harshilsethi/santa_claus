@@ -57,9 +57,10 @@ void PapaXmasElf::pressInButton() {
 		}
 		if(myBelt->getObject() == nullptr) {
 			myBelt->inButton();
-			talk(getName() + ": there is now a " + myBelt->getObject()->getTitle() + "on the conveyor belt");
-		}else
+			talk(getName() + ": there is now a " + myBelt->getObject()->getTitle() + " on the conveyor belt");
+		} else {
 			throw std::string(getName() + ": There's already an object on the conveyor belt.");
+		}
 	}
 	catch (std::string &err){
 		report(err);
@@ -71,7 +72,7 @@ void PapaXmasElf::pressOutButton() {
 		if (myBelt == nullptr){
 			throw std::string(getName() + ": I don't have a conveyor belt.");
 		}
-		if(myBelt->getObject() == nullptr)
+		if(myBelt->getObject() != nullptr)
 			myBelt->outButton();
 		else
 			throw std::string(getName() + ": There's no object on the conveyor belt.");
@@ -108,7 +109,7 @@ void PapaXmasElf::takeFromBelt() {
 			myBelt->getObject();
 			object.isTaken();
 			putOnTable(object);
-			myBelt->setObject(nullptr);
+			delete myBelt->getObject();
 		}else{
 			throw std::string(getName() + ": There's no object on the conveyor belt.");
 		}
@@ -149,42 +150,27 @@ std::list<std::string> PapaXmasElf::look() {
 			temp = myTable->getObjects();
 			std::string firstMsg = this->getName() + ": What's on this table...?";
 
-	std::cout << "---" << std::endl;
-	talk(firstMsg);
-	if (temp.empty())
-		std::cout << "There is no object on the table !" << std::endl;
-	else {
-		for (auto &object : temp) {
-			if (!object.getTitle().empty())
-				std::cout << "The object " << object.getTitle() << " is on the Christmas table !" << std::endl;
-			else
-				std::cout << "There is an object " << object.getTypeName() << " on the Christmas table !" << std::endl;
-			objectList.push_back(object.getTitle());
-		}
-	}
-	std::cout << "---" << std::endl;
-	return (objectList);
+			std::cout << "---" << std::endl;
 			talk(firstMsg);
 			if (temp.empty())
 				std::cout << "There is no object on the table !" << std::endl;
 			else {
 				for (auto &object : temp) {
 					if (!object.getTitle().empty())
-						std::cout << "The object " << object.getTitle()
-							  << " is on the Christmas table !" << std::endl;
+						std::cout << "The object " << object.getTitle() << " is on the Christmas table !" << std::endl;
 					else
-						std::cout << "There is an object " << object.getTypeName()
-							  << " on the Christmas table !" << std::endl;
+						std::cout << "There is an object " << object.getTypeName() << " on the Christmas table !" << std::endl;
 					objectList.push_back(object.getTitle());
 				}
 			}
-			return (objectList);
+			std::cout << "---" << std::endl;
 		} else
 			throw std::string(getName() + ": I don't have a table");
 	}
 	catch (std::string &err){
 		report(err);
 	}
+	return (objectList);
 }
 
 std::string PapaXmasElf::getName() const {

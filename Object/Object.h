@@ -30,5 +30,6 @@ public:
 	objectType getType() const;
 	std::string getTypeName() const;
 };
+bool operator==(Object const &obj1, Object const &obj2);
 
 #endif //SANTA_CLAUS_OBJECT_H

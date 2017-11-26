@@ -37,7 +37,7 @@ Object *PapaXmasConveyorBelt::getObject() {
 }
 
 void PapaXmasConveyorBelt::setObject(Object *object) {
-	if(this->objectOnBelt)
+	if (this->objectOnBelt)
 		return;
 	else
 		this->objectOnBelt = object;

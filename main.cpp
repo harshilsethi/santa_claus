@@ -54,13 +54,13 @@ void run(PapaXmasElf &elf) {
 			std::cout << elf.getName() << ": let's open this box..." << std::endl;
 			itBox->openMe();
 			itBox->wrapMeThat(toy);
-			elf.takeFromTable(toy);
+			elf.getTable()->deleteFromTable(toy);
 			itBox->closeMe();
 			if (itPaper != papers.end()) {
 				itPaper->wrapMeThat(*itBox);
-				elf.takeFromTable(*itBox);
+				elf.getTable()->deleteFromTable(*itBox);
 				elf.getBelt()->setObject(&*itPaper);
-				elf.takeFromTable(*itPaper);
+				elf.getTable()->deleteFromTable(*itPaper);
 				elf.pressOutButton();
 				elf.talk(giftSentSentence);
 			}
@@ -69,6 +69,7 @@ void run(PapaXmasElf &elf) {
 		} else {
 			if (itPaper != papers.end()) {
 				itPaper->wrapMeThat(toy);
+				elf.getTable()->deleteFromTable(toy);
 				elf.getBelt()->setObject(&*itPaper);
 				elf.talk(giftSentSentence);
 			} else
