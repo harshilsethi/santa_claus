@@ -13,10 +13,10 @@
 
 #include "Object.h"
 
-class Wrap : public Object {
+class Wrap : public Object
+{
 protected:
         bool open;
-
         Object *content;
 
 public:
@@ -25,7 +25,7 @@ public:
 
         Object *getObject() const;
 	bool isEmpty();
-        virtual void wrapMeThat(Object *object) = 0;
+        virtual void wrapMeThat(Object &object) = 0;
         virtual void openMe();
         virtual void closeMe();
         Object *MyUnitTests(Object **);

@@ -9,6 +9,7 @@
 #include "Xmas/PapaXmasTable.h"
 #include "Xmas/IElf.h"
 #include "Xmas/PapaXmasElf.h"
+#include "globalUnitTests.h"
 
 void run(PapaXmasElf &elf) {
 	// Assignment to tables and conveyor belts
@@ -110,5 +111,7 @@ int main() {
 
 	run(elf1);
 	//run(elf2);
+
+	globalUnitTests Go;
 	return 0;
 }

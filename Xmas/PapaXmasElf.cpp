@@ -51,7 +51,7 @@ void PapaXmasElf::pressInButton() {
 		if(myBelt->getObject() != nullptr)
 			myBelt->inButton();
 		else
-			throw getName() + ": There's already an object on the conveyor belt.";
+			throw std::string(getName() + ": There's already an object on the conveyor belt.");
 	}
 	catch (std::string &err){
 		report(err);
@@ -63,7 +63,7 @@ void PapaXmasElf::pressOutButton() {
 		if(myBelt->getObject() == nullptr)
 			myBelt->outButton();
 		else
-			throw getName() + ": There's no object on the conveyor belt.";
+			throw std::string(getName() + ": There's no object on the conveyor belt.");
 	}
 	catch (std::string &err){
 		std::cerr << err << std::endl;
@@ -75,7 +75,7 @@ void PapaXmasElf::putOnBelt(Object &object) {
 	if (myBelt->getObject() == nullptr)
 		myBelt->setObject(objectPtr);
 	else
-		throw getName() + ": There's already an object on the conveyor belt";
+		throw std::string(getName() + ": There's already an object on the conveyor belt");
 }
 
 void PapaXmasElf::putOnTable(Object &object) {
@@ -86,7 +86,7 @@ void PapaXmasElf::putOnTable(Object &object) {
 		temp.push_back(object);
 		myTable->setObjects(temp);
 	}else
-		throw getName() + ": I have no more room on my table.";
+		throw std::string(getName() + ": I have no more room on my table.");
 
 }
 
@@ -97,7 +97,7 @@ void PapaXmasElf::takeFromBelt(Object &object) {
 			putOnTable(object);
 			myBelt->setObject(nullptr);
 		}else{
-			throw getName() + ": There's no object on the conveyor belt.";
+			throw std::string(getName() + ": There's no object on the conveyor belt.");
 		}
 	}
 	catch (std::string &err){
@@ -120,7 +120,7 @@ void PapaXmasElf::takeFromTable(Object &object) {
 			}
 		}
 		if(!find)
-			throw getName() + ": I don't have this type of object on my table.";
+			throw std::string(getName() + ": I don't have this type of object on my table.");
 	}
 	catch(std::string &err){
 		report(err);
