@@ -26,7 +26,7 @@ public:
 	virtual ~Object();
 	virtual bool isTaken() const;
 	std::string getTitle() const;
-	Object **MyUnitTests();
+	static Object **MyUnitTests();
 	objectType getType() const;
 
 	std::string getTypeName() const;

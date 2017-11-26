@@ -9,6 +9,7 @@
 #include "Xmas/PapaXmasTable.h"
 #include "Xmas/IElf.h"
 #include "Xmas/PapaXmasElf.h"
+#include "globalUnitTests.h"
 
 int main() {
 	Wrap *wrap = nullptr;
@@ -36,7 +37,6 @@ int main() {
 	IElf *elf2 = new PapaXmasElf(kennyName);
 
 	// Assignment to tables and conveyor belts
-
 
 	return 0;
 }

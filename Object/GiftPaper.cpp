@@ -8,6 +8,7 @@
 #include "GiftPaper.h"
 
 GiftPaper::GiftPaper() {
+    title = "GiftPaper";
     type = GIFTPAPER;
 }
 

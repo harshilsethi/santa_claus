@@ -8,6 +8,7 @@
 #include "Box.h"
 
 Box::Box() {
+	title = "Box";
 	type = BOX;
 }
 
