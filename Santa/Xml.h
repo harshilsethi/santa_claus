@@ -8,9 +8,6 @@
 #ifndef Xml_H_
 #define Xml_H_
 
-#include <boost/property_tree/xml_parser.hpp>
-#include <boost/property_tree/ptree.hpp>
-
 #include <iostream>
 #include <string>
 #include <fstream>
