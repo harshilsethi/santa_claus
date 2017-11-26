@@ -11,18 +11,18 @@
 
 #include "ITable.h"
 
-class TableRandom : ITable{
+class TableRandom : public ITable {
 public:
-private:
+	TableRandom();
+	~TableRandom();
+
 	ITable *createTable() override;
-
 	std::list<Object> getObjects() override;
-
 	void setObjects(std::list<Object> objects) override;
+	void deleteFromTable(Object &object) override;
 
 private:
 	std::list<Object> objects;
 };
-
 
 #endif //SANTA_CLAUS_TABLERANDOM_H

@@ -5,18 +5,24 @@
 //
 //
 
-#include "RandomConeyoyBelt.h"
+#include "RandomConveyorBelt.h"
 #include "../Object/Wrap.h"
 #include "../Object/GiftPaper.h"
 #include "../Object/Box.h"
 #include "../Xml/Xml.h"
 
-IConveyorBelt *RandomConeyoyBelt::createConveyorBelt() {
-	IConveyorBelt *belt = new RandomConeyoyBelt();
+RandomConveyorBelt::RandomConveyorBelt() {
+	this->objectOnbelt = nullptr;
+}
+
+RandomConveyorBelt::~RandomConveyorBelt() = default;
+
+IConveyorBelt *RandomConveyorBelt::createConveyorBelt() {
+	IConveyorBelt *belt = new RandomConveyorBelt();
 	return belt;
 }
 
-void RandomConeyoyBelt::inButton() {
+void RandomConveyorBelt::inButton() {
 	Wrap *newObject;
 	if(random() % 2)
 		newObject = new GiftPaper();
@@ -25,7 +31,7 @@ void RandomConeyoyBelt::inButton() {
 	this->objectOnbelt = newObject;
 }
 
-void RandomConeyoyBelt::outButton() {
+void RandomConveyorBelt::outButton() {
 	Object *tmp;
 	std::string	gift;
 	tmp = this->getObject();
@@ -34,24 +40,18 @@ void RandomConeyoyBelt::outButton() {
 	gift = Xml::serialize(tmp);
 	std::cout << gift << std::endl;
 	std::cout << "Sent to santas claus" << std::endl;
-	delete tmp;
+	this->objectOnbelt = nullptr;
 }
 
-Object *RandomConeyoyBelt::getObject() {
+Object *RandomConveyorBelt::getObject() {
 	if(!this->objectOnbelt)
 		return nullptr;
 	else
 		return (objectOnbelt);}
 
-void RandomConeyoyBelt::setObject(Object *object) {
+void RandomConveyorBelt::setObject(Object *object) {
 	if(this->objectOnbelt)
 		return;
 	else
 		this->objectOnbelt = object;
 }
-
-RandomConeyoyBelt::RandomConeyoyBelt() {
-	this->objectOnbelt = nullptr;
-}
-
-RandomConeyoyBelt::~RandomConeyoyBelt() = default;

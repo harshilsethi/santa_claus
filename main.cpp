@@ -10,6 +10,8 @@
 #include "Xmas/IElf.h"
 #include "Xmas/PapaXmasElf.h"
 #include "globalUnitTests.h"
+#include "Xmas/TableRandom.h"
+#include "Xmas/RandomConveyorBelt.h"
 
 void run(PapaXmasElf &elf) {
 	/**
@@ -53,7 +55,9 @@ void run(PapaXmasElf &elf) {
 				elf.getTable()->deleteFromTable(*itBox);
 				elf.getBelt()->setObject(&*itPaper);
 				elf.getTable()->deleteFromTable(*itPaper);
+				std::cout << "BEFORE OUT BUTTON" << std::endl;
 				elf.pressOutButton();
+				std::cout << "AFTER OUT BUTTON" << std::endl;
 				elf.talk(giftSentSentence);
 			}
 			else
@@ -119,26 +123,27 @@ int main() {
 
 
 	// Elves creation with RANDOM STUFF
-	/*
+
 	PapaXmasElf elf3("Bob");
 	PapaXmasElf elf4("Diot");
 
-	PapaXmasTable table3;
+	TableRandom table3;
 	elf3.setTable(table3);
 	elf3.look();
-	PapaXmasConveyorBelt belt3;
+	RandomConveyorBelt belt3;
 	elf3.setBelt(belt3);
 
+	/*
 	PapaXmasTable table4;
 	elf4.setTable(table4);
 	elf4.look();
 	PapaXmasConveyorBelt belt4;
 	elf4.setBelt(belt4);
-
+*/
 	run(elf3);
-	run(elf4);
+//	run(elf4);
 
-	 */
+
 
 	globalUnitTests Go;
 	return 0;

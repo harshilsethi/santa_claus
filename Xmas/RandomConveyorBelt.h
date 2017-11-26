@@ -11,20 +11,15 @@
 
 #include "IConveyorBelt.h"
 
-class RandomConeyoyBelt : IConveyorBelt{
+class RandomConveyorBelt : public IConveyorBelt{
 public:
-	RandomConeyoyBelt();
-
-	~RandomConeyoyBelt();
+	RandomConveyorBelt();
+	~RandomConveyorBelt();
 
 	IConveyorBelt *createConveyorBelt() override;
-
 	void inButton() override;
-
 	void outButton() override;
-
 	Object *getObject() override;
-
 	void setObject(Object *object) override;
 
 private:

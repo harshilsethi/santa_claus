@@ -1,37 +1,24 @@
-/*
-** EPITECH PROJECT, 2017
-** Piscine CPP
-** File description:
-** Xml.h
-*/
+//
+// EPITECH PROJECT, 2017
+// 
+// File description:
+//
+//
 
-#ifndef Xml_H_
-#define Xml_H_
+#ifndef SANTA_CLAUS_XML_H
+#define SANTA_CLAUS_XML_H
 
-#include <boost/property_tree/xml_parser.hpp>
-#include <boost/property_tree/ptree.hpp>
-
-#include <iostream>
-#include <string>
-#include <fstream>
 
 #include "../Object/Object.h"
-#include "../Object/Teddy.h"
 
-struct Gift {
-        std::string     type;
-        int             object;
-        std::string     title;
-};
-
-class Xml
-{
+class Xml {
+protected:
+	Xml();
 public:
-        Xml();
-        ~Xml();
+	~Xml();
 
-        Gift deserialize(const std::string &filename);
-        void serialize(Object *object, std::ostream &os);
+	static std::string serialize(Object *object);
 };
 
-#endif // Xml_H_
+
+#endif //SANTA_CLAUS_XML_H

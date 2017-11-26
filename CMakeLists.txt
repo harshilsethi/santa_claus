@@ -29,6 +29,10 @@ set(SOURCE_FILES
         Xmas/PapaXmasElf.h
         Xmas/PapaXmasTable.cpp
         Xmas/PapaXmasTable.h
+        Xmas/RandomConveyorBelt.cpp
+        Xmas/RandomConveyorBelt.h
+        Xmas/TableRandom.cpp
+        Xmas/TableRandom.h
         main.cpp
         globalUnitTests.cpp
         globalUnitTests.h)

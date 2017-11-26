@@ -12,6 +12,12 @@
 #include "../Object/GiftPaper.h"
 #include "../Object/Box.h"
 
+TableRandom::TableRandom() {
+	this->createTable();
+}
+
+TableRandom::~TableRandom() = default;
+
 ITable *TableRandom::createTable() {
 	int random;
 	std::list<Object> _objects;
@@ -42,4 +48,13 @@ std::list<Object> TableRandom::getObjects() {
 
 void TableRandom::setObjects(std::list<Object> objects) {
 	this->objects = objects;
+}
+
+void TableRandom::deleteFromTable(Object &object) {
+	for (std::list<Object>::iterator it = objects.begin(); it != objects.end(); ++it) {
+		if (it->getTitle() == object.getTitle()) {
+			this->objects.remove(*it);
+			it--;
+		}
+	}
 }
