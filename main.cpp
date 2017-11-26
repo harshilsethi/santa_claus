@@ -27,9 +27,10 @@ void run(PapaXmasElf &elf) {
 	std::list<Box> boxes;
 	std::list<Toy> toys;
 	std::list<GiftPaper> papers;
-	std::string errEmptyLists = elf.getName() + ": Cannot prepare a present with missing stuff !";
 	std::list<Box>::iterator itBox;
 	std::list<GiftPaper>::iterator itPaper;
+	std::string errEmptyLists = elf.getName() + ": Cannot prepare a present with missing stuff !";
+	std::string giftSentSentence = elf.getName() + ": Gift sent to Santa !";
 
 	// put objects in right categories
 	for (auto &object : objectsOnTable1) {
@@ -52,17 +53,24 @@ void run(PapaXmasElf &elf) {
 			itBox = boxes.begin();
 			std::cout << elf.getName() << ": let's open this box..." << std::endl;
 			itBox->openMe();
-			toy.isTaken();
 			itBox->wrapMeThat(toy);
+			elf.takeFromTable(toy);
 			itBox->closeMe();
-			if (itPaper != papers.end())
+			if (itPaper != papers.end()) {
 				itPaper->wrapMeThat(*itBox);
+				elf.takeFromTable(*itBox);
+				elf.getBelt()->setObject(&*itPaper);
+				elf.takeFromTable(*itPaper);
+				elf.pressOutButton();
+				elf.talk(giftSentSentence);
+			}
 			else
 				elf.report(errEmptyLists);
 		} else {
 			if (itPaper != papers.end()) {
-				toy.isTaken();
 				itPaper->wrapMeThat(toy);
+				elf.getBelt()->setObject(&*itPaper);
+				elf.talk(giftSentSentence);
 			} else
 				elf.report(errEmptyLists);
 		}
@@ -71,6 +79,7 @@ void run(PapaXmasElf &elf) {
 		if (itPaper != papers.end())
 			++itPaper;
 	}
+	elf.look();
 
 
 	/** Pense-bête : pour récupérer un jouet dans une boîte dans un papier :
