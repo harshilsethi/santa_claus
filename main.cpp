@@ -123,7 +123,6 @@ int main() {
 	// Elves creation with RANDOM STUFF
 
 	PapaXmasElf elf3("Bob");
-	PapaXmasElf elf4("Diot");
 
 	TableRandom table3;
 	elf3.setTable(table3);
@@ -131,17 +130,7 @@ int main() {
 	RandomConveyorBelt belt3;
 	elf3.setBelt(belt3);
 
-	/*
-	PapaXmasTable table4;
-	elf4.setTable(table4);
-	elf4.look();
-	PapaXmasConveyorBelt belt4;
-	elf4.setBelt(belt4);
-*/
 	run(elf3);
-//	run(elf4);
-
-
 
 	globalUnitTests Go;
 	return 0;
