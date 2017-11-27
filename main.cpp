@@ -55,9 +55,7 @@ void run(PapaXmasElf &elf) {
 				elf.getTable()->deleteFromTable(*itBox);
 				elf.getBelt()->setObject(&*itPaper);
 				elf.getTable()->deleteFromTable(*itPaper);
-				std::cout << "BEFORE OUT BUTTON" << std::endl;
 				elf.pressOutButton();
-				std::cout << "AFTER OUT BUTTON" << std::endl;
 				elf.talk(giftSentSentence);
 			}
 			else

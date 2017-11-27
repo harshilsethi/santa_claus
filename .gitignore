@@ -3,3 +3,7 @@ cmake-build-debug
 .idea/
 a.out
 *.o
+gift1.xml
+gift2.xml
+gift3.xml
+gift4.xml
