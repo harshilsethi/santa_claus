@@ -43,10 +43,11 @@ void RandomConveyorBelt::outButton() {
 
 	if (!tmp)
 		return;
-	if (((static_cast<Wrap&>(*tmp)).getObject())->getTypeName() == "teddy" || ((static_cast<Wrap&>(*tmp)).getObject())->getTypeName() =="little pony") {
+	if (((dynamic_cast<Wrap&>(*tmp)).getObject())->getTypeName() == "teddy" || ((dynamic_cast<Wrap&>(*tmp)).getObject())->getTypeName() =="little pony") {
 		toy = (dynamic_cast<Wrap&>(*tmp)).getObject();
 	} else {
-		std::cout << "///// TOY ? : " <<  (dynamic_cast<Wrap&>(static_cast<Wrap&>(*tmp)).getObject())->getTypeName()<< std::endl;
+		Object *tmp2 = (dynamic_cast<Wrap&>(*tmp)).getObject();
+		toy = (dynamic_cast<Wrap&>(*tmp2)).getObject();
 	}
 	std::cout << "Please enter the gift number : ";
 	getline(std::cin, filename);
